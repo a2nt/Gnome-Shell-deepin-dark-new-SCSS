@@ -10,5 +10,5 @@
 + Add more variables
 + Improve theme generation
 
-
+At the screenshoot you can see Gnome Shell with nautilus filemanager (based on gtk3) and Filezilla (based on gtk2)
 ![Alt text](/Screenshoots/screenshot-1.png?raw=true "Screenshoot with filemanager (gtk3) and Filezilla (gtk2)")
