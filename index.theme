@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=deepin-dark-new
+Comment=default GTK theme for deepin
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=deepin-dark-new
+GtkTheme=deepin-dark-new
+IconTheme=deepin-dark-new
+MetacityTheme=deepin-dark-new
+CursorTheme=DMZ-Black
+ButtonLayout=menu:minimize,maximize,close

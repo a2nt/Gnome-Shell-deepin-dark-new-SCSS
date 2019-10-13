@@ -1,0 +1,15 @@
+/*
+ * More options at _filechooser.scss
+ */
+
+.nautilus-window paned > separator {
+    background-image: linear-gradient(to top, rgba(53, 57, 69, 0.95), rgba(53, 57, 69, 0.95));
+}
+
+.nautilus-window paned > separator:dir(ltr) {
+    margin-left: -1px;
+}
+
+.nautilus-window paned > separator:dir(rtl) {
+    margin-right: -1px;
+}

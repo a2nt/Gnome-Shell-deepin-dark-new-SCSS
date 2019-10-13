@@ -1,0 +1,42 @@
+.normal-icons {
+    -gtk-icon-size: 16px;
+}
+
+.large-icons {
+    -gtk-icon-size: 32px;
+}
+
+image.drag-icon {
+    -gtk-icon-size: 32px;
+}
+
+.h1 {
+    font-size: 24px;
+}
+
+.h2 {
+    font-size: 18px;
+}
+
+.h3 {
+    font-size: 11px;
+}
+
+.h4,
+.category-label {
+    color: #8a8e96;
+    font-weight: 600;
+}
+
+.h4 {
+    padding-bottom: 6px;
+    padding-top: 6px;
+}
+
+GtkListBox .h4 {
+    padding-left: 6px;
+}
+
+.monospace {
+    font-family: monospace;
+}

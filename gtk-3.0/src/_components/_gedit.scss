@@ -1,0 +1,39 @@
+.gedit-bottom-panel-paned {
+    background-color: #ffffff;
+}
+
+.gedit-document-panel {
+    background-color: $base_color;
+}
+
+.maximized .gedit-document-panel {
+    background-color: $base_color;
+}
+
+.gedit-document-panel row {
+    color: #303030;
+    background-color: rgba(186, 195, 207, 0);
+}
+
+.gedit-document-panel row:hover {
+    background-color: rgba(186, 195, 207, 0.15);
+}
+
+.gedit-document-panel row:active {
+    color: #ffffff;
+    background-color: $active_color;
+}
+
+.gedit-document-panel row:active button {
+    color: #ffffff;
+}
+
+.gedit-document-panel row:selected,
+.gedit-document-panel row:selected:hover {
+    color: #ffffff;
+    background-color: $active_color;
+}
+
+.gedit-document-panel row:hover:not(:selected) button:active {
+    color: #BAC3CF;
+}

@@ -1,0 +1,34 @@
+.nemo-window .sidebar {
+    color: #BAC3CF;
+    background-color: $base_color;
+}
+
+.nemo-window .sidebar .view,
+.nemo-window .sidebar iconview,
+.nemo-window .sidebar row {
+    background-color: transparent;
+    color: #BAC3CF;
+}
+
+.nemo-window .sidebar .view.cell:selected,
+.nemo-window .sidebar iconview.cell:selected,
+.nemo-window .sidebar row.cell:selected {
+    background-color: $active_color;
+    color: #ffffff;
+}
+
+.nemo-window .sidebar .view.expander,
+.nemo-window .sidebar iconview.expander,
+.nemo-window .sidebar row.expander {
+    color: rgba(123, 129, 141, 0.975);
+}
+
+.nemo-window .sidebar .view.expander:hover,
+.nemo-window .sidebar iconview.expander:hover,
+.nemo-window .sidebar row.expander:hover {
+    color: #BAC3CF;
+}
+
+.nemo-window .sidebar separator {
+    background-color: transparent;
+}
