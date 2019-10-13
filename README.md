@@ -9,3 +9,6 @@
 
 + Add more variables
 + Improve theme generation
+
+
+![Alt text](/Screenshoots/screenshot-1.png?raw=true "Screenshoot with filemanager (gtk3) and Filezilla (gtk2)")
