@@ -1,0 +1,194 @@
+/*
+* DO NOT CHANGE
+* Use ../_variables.scss to customize
+*/
+
+$variant: "dark" !default;
+
+/*
+#212121
+#424242
+#bdbdbd
+#2196f3
+*/
+
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// Color system
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+$grays: () !default;
+$grays: map-merge(("100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900), $grays);
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+$lime: #84ff39 !default;
+$g1: #00e8b7 !default;
+$g2: #00e8b7 !default;
+$colors: () !default;
+$colors: map-merge(("blue": $blue, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray-600, "gray-dark": $gray-800), $colors);
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$theme-colors: () !default;
+
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(("primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark), $theme-colors);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold: 150 !default;
+
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;
+
+// When color definition differs for dark and light variant
+// it gets @if ed depending on $variant
+$base_color: if($variant == "light", #ffffff, lighten(desaturate(#241f31, 100%), 2%)) !default;
+$text_color: if($variant == "light", black, white) !default;
+$bg_color: if($variant == "light", #f6f5f4, darken(desaturate(#3d3846, 100%), 4%)) !default;
+$fg_color: if($variant == "light", #2e3436, #eeeeec) !default;
+
+//252b2f
+$main_dark: darken($bg_color, 5%) !default;
+$gray: lighten($bg_color, 7%) !default;
+$fg_color: #98abb2 !default;
+$dracula: #222e39 !default;
+$topbar_color: lighten($fg_color, 40%) !default;
+
+$top_highlight: transparentize(white, 0.9) !default;
+$bottom_highlight: transparentize(black, 0.9) !default;
+
+$selected_bg_color: if($variant == "light", #3584e4, darken(#3584e4, 20%)) !default;
+$selected_borders_color: if($variant == "light", darken($selected_bg_color, 15%), darken($selected_bg_color, 30%)) !default;
+$selected_fg_color: #f7f7f7 !default;
+
+$borders_color: if($variant == "light", darken($bg_color, 18%), darken($bg_color, 10%)) !default;
+$alt_borders_color: if($variant == "light", darken($bg_color, 24%), darken($bg_color, 18%)) !default;
+$borders_edge: if($variant == "light", transparentize(white, 0.2), transparentize($fg_color, 0.93)) !default;
+$link_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($selected_bg_color, 20%)) !default;
+$link_visited_color: if($variant == "light", darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%)) !default;
+$top_hilight: $borders_edge !default;
+$dark_fill: mix($borders_color, $bg_color, 50%) !default;
+$headerbar_color: if($variant == "light", lighten($bg_color, 5%), darken($bg_color, 3%)) !default;
+$menu_color: if($variant == "light", $base_color, mix($bg_color, $base_color, 20%)) !default;
+$popover_bg_color: $bg_color !default;
+$popover_hover_color: lighten($bg_color, 5%) !default;
+$scrollbar_bg_color: if($variant == "light", mix($bg_color, $fg_color, 80%), mix($base_color, $bg_color, 50%)) !default;
+$scrollbar_slider_color: mix($fg_color, $bg_color, 60%) !default;
+$scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%) !default;
+$scrollbar_slider_active_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%)) !default;
+
+$warning_color: darken($orange, 10%) !default;
+$error_color: darken($red, 5%) !default;
+$success_color: if($variant == "light", #33d17a, darken(#33d17a, 10%)) !default;
+$destructive_color: if($variant == "light", #e01b24, darken(#e01b24, 10%)) !default;
+
+$osd_fg_color: $fg_color !default;
+$osd_text_color: white !default;
+
+$osd_bg_color: if($variant == "light", transparentize(darken(desaturate(#3d3846, 100%), 4%), 0.3), transparentize(darken(desaturate(#3d3846, 100%), 10%), 0.3)) !default;
+$osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_color, 1), 10%), 0.5) !default;
+$osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%) !default;
+$osd_borders_color: transparentize(black, 0.3) !default;
+$osd_outer_borders_color: transparentize(white, 0.9) !default;
+
+$sidebar_bg_color: mix($bg_color, $base_color, 50%) !default;
+$base_hover_color: transparentize($fg_color, 0.95) !default;
+$tooltip_borders_color: $osd_outer_borders_color !default;
+$shadow_color: transparentize(black, 0.9) !default;
+$drop_target_color: #4e9a06 !default;
+
+//insensitive state derived colors
+$insensitive_fg_color: mix($fg_color, $bg_color, 50%) !default;
+$insensitive_bg_color: mix($bg_color, $base_color, 60%) !default;
+$insensitive_borders_color: $borders_color !default;
+
+//colors for the backdrop state, derived from the main colors.
+$backdrop_bg_color: $bg_color !default;
+$backdrop_base_color: if($variant == "light", darken($base_color, 1%), lighten($base_color, 1%)) !default;
+$backdrop_text_color: mix($text_color, $backdrop_base_color, 80%) !default;
+$backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%) !default;
+$backdrop_insensitive_color: if($variant == "light", darken($backdrop_bg_color, 15%), lighten($backdrop_bg_color, 15%)) !default;
+$backdrop_selected_fg_color: if($variant == "light", $backdrop_base_color, $backdrop_text_color) !default;
+$backdrop_borders_color: mix($borders_color, $bg_color, 80%) !default;
+$backdrop_dark_fill: mix($backdrop_borders_color, $backdrop_bg_color, 35%) !default;
+$backdrop_sidebar_bg_color: mix($backdrop_bg_color, $backdrop_base_color, 50%) !default;
+$backdrop_scrollbar_bg_color: darken($backdrop_bg_color, 3%) !default;
+$backdrop_scrollbar_slider_color: mix($backdrop_fg_color, $backdrop_bg_color, 40%) !default;
+$backdrop_menu_color: if($variant == "light", $backdrop_base_color, mix($backdrop_bg_color, $backdrop_base_color, 20%)) !default;
+
+//special cased widget colors
+$suggested_bg_color: $selected_bg_color !default;
+$suggested_border_color: $selected_borders_color !default;
+$progress_bg_color: $selected_bg_color !default;
+$progress_border_color: $selected_borders_color !default;
+$checkradio_bg_color: $selected_bg_color !default;
+$checkradio_fg_color: $selected_fg_color !default;
+$bg_color: $base_color !default;
+$border_color: $base_color !default;
+$toolbar_color: shade($base_color, 0.8) !default;
+$text_color: #bdbdbd !default;
+$theme_text_color: $text_color !default;
+$toolbar_icon_color: $text-color !default;
+$active_color: #106daa !default;
+$current_color: $active_color !default;
+$theme_fg_color: #5c616c !default;
+$theme_text_color: #89919a !default;
+$theme_bg_color: $base_color !default;
+$theme_base_color: $base_color !default;
+$theme_selected_bg_color: #106daa !default;
+$theme_selected_fg_color: #ffffff !default;
+
+$placeholder_text_color: #A8A8A8 !default;
+$content_view_bg: #ffffff !default;
+$wm_title: rgba(#525d76, 0.8) !default;
+$wm_unfocused_title: rgba(#525d76, 0.5) !default;
+$wm_bg: $base_color !default;
+$wm_bg_unfocused: shade($base_color, 0.9) !default;
+$wm_highlight: #eff0f2 !default;
+$wm_shadow: rgba(black, 0.35) !default;
+$wm_button_close_bg: #f46067 !default;
+$wm_button_close_hover_bg: #f68086 !default;
+$wm_button_close_active_bg: #f13039 !default;
+$wm_icon_close_bg: #F8F8F9 !default;
+$wm_button_hover_bg: #fdfdfd !default;
+$wm_button_active_bg: $active_color !default;
+$wm_button_hover_border: #D1D3DA !default;
+$wm_icon_bg: #90949E !default;
+$wm_icon_unfocused_bg: #B6B8C0 !default;
+$wm_icon_hover_bg: #7A7F8B !default;
+$wm_icon_active_bg: #ffffff !default;
+
+$toolbar_icon_color: $theme_text_color !default;
+$hightlight_color: $active_color !default;
+$hightlight_line: rgba(255, 255, 255, 0.02) !default;
+
+@import "_mixings";
+@import "_drawing";
