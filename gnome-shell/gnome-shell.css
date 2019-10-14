@@ -659,7 +659,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 .search-provider-icon { padding: 15px; }
 
 /* DASHBOARD */
-#dash { font-size: 10pt; color: #BAC3CF; background-color: rgba(53, 57, 69, 0.95); border: 1px solid rgba(0, 0, 0, 0.4); border-left: 0px; padding: 0; border-radius: 0; }
+#dash { font-size: 10pt; color: #BAC3CF; background-color: rgba(53, 57, 69, 0.55); border: 0; border-left: 0px; padding: 0; border-radius: 0; }
 
 #dash:rtl { border-radius: 0; }
 
@@ -687,7 +687,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 #dash .app-well-app-running-dot, #dashtodockContainer .app-well-app-running-dot { width: 5px; height: 5px; background-color: #15539e; border-radius: 5px; margin-bottom: 0; }
 
-#dashtodockContainer .show-apps .overview-icon { margin: 0; border-radius: 0; }
+#dashtodockContainer .show-apps .overview-icon { margin: 0; background: none; border-radius: 0; }
 
 #dashtodockContainer .running1 .app-well-app-running-dot { background-image: url("assets/dash/running1.svg"); }
 
@@ -699,7 +699,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .show-apps { margin: 0; border-radius: 0; }
 
-.show-apps .overview-icon { background-color: rgba(0, 0, 0, 0.5); border-radius: 0; padding: 6px; border: 0px; transition-duration: 0ms; text-align: center; }
+.show-apps .overview-icon { background: none; border-radius: 0; padding: 6px; border: 0px; transition-duration: 0ms; text-align: center; }
 
 .show-apps:hover .overview-icon, .show-apps:focus .overview-icon, .show-apps:selected .overview-icon { border-radius: 0; }
 
@@ -712,8 +712,6 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 .system-action-icon { background-color: #15539e; color: #f7f7f7; border-radius: 99px; icon-size: 48px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2); }
 
 .app-view-controls { padding-bottom: 32px; }
-
-.app-view-control { padding: 4px 32px; }
 
 .app-view-control:checked { color: #f7f7f7; background-color: #15539e; }
 

@@ -28,8 +28,6 @@
 
 //favorties | all toggle button
 .app-view-control {
-    padding: 4px 32px;
-
     @include button(osd);
 
     &:hover {

@@ -4,8 +4,8 @@
     @include fontsize($font-size);
 
     color: $osd_fg_color;
-    background-color: $dark_sidebar_bg;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-color: transparentize($dark_sidebar_bg, $theme-color-interval * 5 / 100);
+    border: 0;
     border-left: 0px;
     padding: 0;
     border-radius: 0;
@@ -100,6 +100,7 @@
     // like standard #dash styling. Better than 1px transparent border.
     .show-apps .overview-icon {
         margin: 0;
+        background: none;
         border-radius: 0;
     }
 
@@ -115,7 +116,7 @@
     border-radius: 0;
 
     .overview-icon {
-        background-color: transparentize(black, 0.5);
+        background: none;
         border-radius: 0;
         padding: 6px;
         border: 0px;
