@@ -4,6 +4,8 @@
 */
 
 $variant: "dark" !default;
+$transparency: "true" !default;
+$darker: "true" !default;
 
 /*
 #212121
@@ -95,6 +97,9 @@ $selected_bg_color: if($variant == "light", #3584e4, darken(#3584e4, 20%)) !defa
 $selected_borders_color: if($variant == "light", darken($selected_bg_color, 15%), darken($selected_bg_color, 30%)) !default;
 $selected_fg_color: #f7f7f7 !default;
 
+$selection_mode_bg: if($transparency == "true", transparentize($selected_bg_color, 0.05), $selected_bg_color);
+$selection_mode_fg: $selected_fg_color;
+
 $borders_color: if($variant == "light", darken($bg_color, 18%), darken($bg_color, 10%)) !default;
 $alt_borders_color: if($variant == "light", darken($bg_color, 24%), darken($bg_color, 18%)) !default;
 $borders_edge: if($variant == "light", transparentize(white, 0.2), transparentize($fg_color, 0.93)) !default;
@@ -102,8 +107,37 @@ $link_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($s
 $link_visited_color: if($variant == "light", darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%)) !default;
 $top_hilight: $borders_edge !default;
 $dark_fill: mix($borders_color, $bg_color, 50%) !default;
+
+$header_bg: red;
+
+@if $transparency == "true" and $variant == "light" {
+    $header_bg: transparentize(#e7e8eb, 0.05);
+}
+
+@if $transparency == "false" and $variant == "light" {
+    $header_bg: #e7e8eb;
+}
+
+@if $transparency == "true" and ($variant == "dark" or $darker == "true") {
+    $header_bg: transparentize(#2f343f, 0.03);
+}
+
+@if $transparency == "false" and ($variant == "dark" or $darker == "true") {
+    $header_bg: #2f343f;
+}
+
+$_header_radius: 0;
+$header_bg_backdrop: if($darker == "true" or $variant == "dark", lighten($header_bg, 1.5%), lighten($header_bg, 3%));
+
 $headerbar_fg_color: $text_color;
+$header_fg: if($variant == "light", saturate(transparentize($fg_color, 0.2), 10%), saturate(transparentize($fg_color, 0.2), 10%));
+$header_fg: if($darker == "true", saturate(transparentize(#D3DAE3, 0.2), 10%), $header_fg);
 $headerbar_color: if($variant == "light", lighten($bg_color, 5%), darken($bg_color, 3%)) !default;
+$header_border: if($variant == "light" and $darker == "false", darken($header_bg, 7%), darken($header_bg, 4%));
+$header_button_bg: if($darker == "true" or $variant == "dark", transparentize(lighten($header_bg, 22%), 0.6), transparentize($button_bg, 0.1));
+$header_button_border: if($darker == "true" or $variant == "dark", transparentize(darken($header_bg, 12%), 0.6), transparentize($header_fg, 0.7));
+$header_entry_border: if($darker == "true" or $variant == "dark", transparentize(darken($header_bg, 12%), 0.6), transparentize($header_fg, 0.7));
+
 $menu_color: if($variant == "light", $base_color, mix($bg_color, $base_color, 20%)) !default;
 $popover_bg_color: $bg_color !default;
 $popover_hover_color: lighten($bg_color, 5%) !default;
@@ -122,12 +156,26 @@ $panel_fg_color: #C3C7D1;
 $panel_borders_color: transparentize(black, 0.8);
 
 $warning_color: if($variant == "light", $orange, darken($orange, 10%));
-$error_color: if($variant == "light", $red, darken($red, 5%));
-$success_color: if($variant == "light", $cyan, darken($cyan, 10%));
-$destructive_color: if($variant == "light", darken($red, 5%), darken($red, 10%));
-$suggested_color: if($variant == "light", $selected_bg_color, darken($selected_bg_color, 10%));
+$warning_fg_color: white;
 
-$osd_fg_color: $fg_color !default;
+$error_color: if($variant == "light", $red, darken($red, 5%));
+$error_fg_color: white;
+
+$success_color: if($variant == "light", $cyan, darken($cyan, 10%));
+
+$destructive_color: if($variant == "light", darken($red, 5%), darken($red, 10%));
+$destructive_fg_color: white;
+$destructive_bg_color: linear-gradient(to right, #ee0979, #ff6a00);
+
+$suggested_color: if($variant == "light", $selected_bg_color, darken($selected_bg_color, 10%));
+$suggested_fg_color: white;
+
+$dark_sidebar_bg: if($transparency == "true", transparentize(#353945, 0.05), #353945);
+$dark_sidebar_fg: #BAC3CF;
+$dark_sidebar_border: if($variant == "light", $dark_sidebar_bg, darken($dark_sidebar_bg, 5%));
+
+$osd_fg_color: $dark_sidebar_fg;
+$osd_bg_color: $dark_sidebar_bg;
 $osd_text_color: white !default;
 
 $osd_bg_color: if($variant == "light", transparentize(darken(desaturate(#3d3846, 100%), 4%), 0.3), transparentize(darken(desaturate(#3d3846, 100%), 10%), 0.3)) !default;
@@ -135,6 +183,9 @@ $osd_insensitive_bg_color: transparentize(mix($osd_fg_color, opacify($osd_bg_col
 $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%) !default;
 $osd_borders_color: transparentize(black, 0.3) !default;
 $osd_outer_borders_color: transparentize(white, 0.9) !default;
+
+$panel_bg: darken($dark_sidebar_bg, 4.7%);
+$panel_fg: $dark_sidebar_fg;
 
 $_sidebar_color: if($variant == "light", #222e39, #161925);
 $sidebar_bg_color: mix($bg_color, $base_color, 50%) !default;
@@ -214,7 +265,6 @@ $hightlight_line: rgba(255, 255, 255, 0.02) !default;
 $scale_bg: if($variant == "light", transparentize(black, 0.86), transparentize(white, 0.86));
 $scale_disabled_bg: if($variant == "light", transparentize(black, 0.94), transparentize(white, 0.94));
 $suggested_bg_color: linear-gradient(to right, #5797f7 0%, #00dcf4 100%);
-$destructive_bg_color: linear-gradient(to right, #ee0979, #ff6a00);
 $menu_shadow_color: if($variant == "light", transparentize(rgb(122, 122, 122), 0.6), transparent);
 
 @import "_mixings";

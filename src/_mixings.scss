@@ -1,3 +1,104 @@
 @function gtkalpha($c, $a) {
     @return unquote("alpha(#{$c},#{$a})");
 }
+
+@mixin linking_rules($a: 0.7, $var: $variant, $vert: "false", $entry_rules: "true", $button_rules: "true", $e_border: $entry_border, $b_border: $button_border) {
+    $_border: if($vert == "false", left, top);
+
+    @if $entry_rules == "true" {
+        > entry + entry {
+            border-#{$_border}-color: transparentize($e_border, $a);
+        }
+
+        > entry.error + entry,
+        > entry + entry.error {
+            border-#{$_border}-color: if($var == "light", $error_color, transparentize($e_border, $a));
+        }
+
+        > entry.warning + entry,
+        > entry + entry.warning {
+            border-#{$_border}-color: if($var == "light", $warning_color, transparentize($e_border, $a));
+        }
+
+        > entry.error + entry.warning,
+        > entry.warning + entry.error {
+            border-#{$_border}-color: if($var == "light", mix($error_color, $warning_color, 50%), transparentize($e_border, $a));
+        }
+
+        @each $e_type, $e_color in (":focus", $selected_bg_color), (":drop(active)", $drop_target_color), (".warning:focus", $warning_color), (".error:focus", $error_color) {
+            > entry + entry#{$e_type}:not(:last-child),
+            > entry + entry#{$e_type}:last-child {
+                border-#{$_border}-color: if($var == "light", $e_color, $e_border);
+            }
+
+            > entry#{$e_type}:not(:only-child) {
+                + entry,
+                + button,
+                + combobox > box > button.combo {
+                    border-#{$_border}-color: if($var == "light", $e_color, $e_border);
+                }
+            }
+        }
+
+        > button:active + entry,
+        > button:checked + entry {
+            border-#{$_border}-color: if($var == "light", $selected_bg_color, $e_border);
+        }
+    }
+
+    @if $button_rules == "true" {
+        $_uncolored_button: "button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)";
+
+        > button + button {
+            border-#{$_border}-style: none;
+        }
+
+        > #{$_uncolored_button}:hover:not(:only-child),
+        > #{$_uncolored_button}:hover + #{$_uncolored_button} {
+            box-shadow: inset if($vert == "false", 1px 0, 0 1px) $b_border;
+        }
+
+        > #{$_uncolored_button}:disabled:not(:only-child),
+        > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) {
+            box-shadow: inset if($vert == "false", 1px 0, 0 1px) transparentize($b_border, 0.5);
+        }
+
+        > button:active + #{$_uncolored_button}:hover,
+        > button:checked + #{$_uncolored_button}:hover,
+        > button.suggested-action + #{$_uncolored_button}:hover,
+        > button.destructive-action + #{$_uncolored_button}:hover,
+        > entry + #{$_uncolored_button}:hover:not(:only-child),
+
+        > #{$_uncolored_button}:first-child:disabled,
+        > #{$_uncolored_button}:disabled + #{$_uncolored_button}:disabled,
+        > #{$_uncolored_button}:first-child:hover,
+        > button:active + #{$_uncolored_button}:disabled,
+        > button:checked + #{$_uncolored_button}:disabled,
+        > button.suggested-action + #{$_uncolored_button}:disabled,
+        > button.destructive-action + #{$_uncolored_button}:disabled,
+        > entry + #{$_uncolored_button}:disabled:not(:only-child), {
+            box-shadow: none;
+        }
+    }
+}
+
+// special case, because path-bars are bugged
+@mixin pathbar_linking_rules($sep_color: if($variant == "light", transparentize($button_border, 0.6), transparentize($button_border, 0.5))) {
+    > button + button {
+        border-left-style: none;
+    }
+
+    > button:hover:not(:checked):not(:active):not(:only-child) {
+        &:hover {
+            box-shadow: inset 1px 0 $sep_color, inset -1px 0 $sep_color;
+        }
+
+        &:first-child:hover {
+            box-shadow: inset -1px 0 $sep_color;
+        }
+
+        &:last-child:hover {
+            box-shadow: inset 1px 0 $sep_color;
+        }
+    }
+}

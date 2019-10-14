@@ -1,0 +1,431 @@
+%header_separator {
+    min-width: 1px;
+    min-height: 1px;
+    background: none;
+    border-width: 0 1px;
+    border-image: linear-gradient(to bottom, transparentize($header_fg, 1) 25%, transparentize($header_fg, 0.65) 25%, transparentize($header_fg, 0.65) 75%, transparentize($header_fg, 1) 75%) 0 1 / 0 1px stretch;
+
+    &:backdrop {
+        opacity: 0.6;
+    }
+}
+
+%header_widgets {
+    // Headerbar Entries
+    entry {
+        @include entry(header-normal);
+
+        &:backdrop {
+            opacity: 0.85;
+        }
+
+        &:focus {
+            @include entry(header-focus);
+
+            background-clip: if($darker == "false" and $variant == "light", border-box, padding-box);
+
+            image {
+                color: $selected_fg_color;
+            }
+        }
+
+        &:disabled {
+            @include entry(header-insensitive);
+        }
+
+        selection:focus {
+            background-color: $selected_fg_color;
+            color: $selected_bg_color;
+        }
+
+        progress {
+            border-color: $selected_bg_color;
+            background-image: none;
+            background-color: transparent;
+        }
+
+        @each $e_type, $e_color, $e_fg_color in (warning, $warning_color, $warning_fg_color), (error, $error_color, $error_fg_color) {
+            &.#{$e_type} {
+                color: $e_fg_color;
+                border-color: if($darker == "false" and $variant == "light", $e_color, $header_entry_border);
+                background-color: mix($e_color, $header_bg, 60%);
+
+                &:focus {
+                    color: $e_fg_color;
+                    background-color: $e_color;
+                }
+
+                selection, selection:focus {
+                    background-color: $e_fg_color;
+                    color: $e_color;
+                }
+            }
+        }
+    }
+
+    // Headerbar Buttons
+    button {
+        @include button(header-normal);
+
+        &:backdrop {
+            opacity: 0.7;
+        }
+
+        &:hover {
+            @include button(header-hover);
+        }
+
+        &:active, &:checked {
+            @include button(header-active);
+
+            background-clip: if($darker == "false" and $variant == "light", border-box, padding-box);
+        }
+
+        &:disabled {
+            @include button(header-insensitive);
+        }
+
+        &:disabled:active, &:disabled:checked {
+            @include button(header-insensitive-active);
+        }
+    }
+
+    &.selection-mode button {
+        &, &.flat {
+            @include button(undecorated);
+
+            color: $selection_mode_fg;
+            background-color: transparentize($selection_mode_fg, 1);
+        }
+
+        &:hover {
+            @extend %normal_selected_button;
+        }
+
+        &:active, &:checked {
+            @extend %selected-button:active;
+        }
+
+        &:disabled {
+            @extend %selected-button.flat:disabled;
+
+            &:checked, &:active {
+                @extend %selected-button:disabled:checked;
+            }
+        }
+    }
+
+    // Linking stuff
+
+    // Disconnect linked buttons
+    .linked:not(.vertical):not(.path-bar):not(.nautilus-path-bar):not(.stack-switcher) {
+        button:not(:last-child):not(:only-child) {
+            margin-right: 1px;
+        }
+    }
+
+    // Reset buttons
+    .linked:not(.vertical):not(.path-bar):not(.nautilus-path-bar):not(.stack-switcher) > button {
+        &, &:hover, &:active, &:checked, &:disabled {
+            border-radius: 3px;
+            border-style: solid;
+        }
+    }
+
+    .linked:not(.vertical):not(.path-bar) {
+        $_uncolored_button: "button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action)";
+
+        > #{$_uncolored_button}:hover:not(:only-child),
+        > #{$_uncolored_button}:hover + #{$_uncolored_button},
+        > #{$_uncolored_button}:disabled:not(:only-child),
+        > #{$_uncolored_button}:disabled + #{$_uncolored_button}:not(:hover) {
+            box-shadow: none;
+        }
+    }
+
+    // special case for path-bars and stack-switchers
+    .linked:not(.vertical):not(.path-bar).stack-switcher,
+    .linked:not(.vertical).path-bar {
+        > button {
+            @include button(header-hover);
+
+            &:hover {
+                background-color: lighten($header_button_bg, 15%);
+            }
+
+            &:active, &:checked {
+                @include button(header-active);
+            }
+
+            &:disabled {
+                color: transparentize($header_fg, 0.4);
+            }
+
+            &, &:hover, &:active, &:checked, &:disabled {
+                @extend %linked;
+            }
+        }
+
+        @include pathbar_linking_rules($sep_color: $header_button_border);
+    }
+
+    // use linking rules for entries only
+    .linked:not(.vertical):not(.path-bar) {
+        @include linking_rules($a: 0.5, $var: if($variant == "light" and $darker == "false", "light", "dark"), $button_rules: "false", $e_border: $header_entry_border, $b_border: $header_button_border);
+    }
+
+    // Headerbar Suggested and Destructive Action buttons
+    @each $b_type, $b_color, $b_fg in (suggested-action, $suggested_color, $suggested_fg_color), (destructive-action, $destructive_color, $destructive_fg_color) {
+        button.#{$b_type} {
+            @include button(suggested_destructive, $b_color, $b_fg);
+
+            &.flat {
+                @include button(undecorated);
+
+                color: $b_color;
+            }
+
+            &:hover {
+                @include button(suggested_destructive, lighten($b_color, 10%), $b_fg);
+            }
+
+            &:active, &:checked {
+                @include button(suggested_destructive, darken($b_color, 10%), $b_fg);
+            }
+
+            &.flat:disabled,
+            &:disabled {
+                @include button(header-insensitive);
+            }
+        }
+
+        button.#{$b_type}:backdrop,
+        button.#{$b_type}:backdrop {
+            opacity: 0.8;
+        }
+    }
+
+    // Headerbar Spinbuttons
+    spinbutton:not(.vertical) {
+        &:focus {
+            color: $selected_fg_color;
+            caret-color: $selected_fg_color;
+        }
+
+        button {
+            &, &:disabled {
+                @include button(header-hover);
+            }
+
+            &:hover {
+                background-color: lighten($header_button_bg, 15%);
+            }
+
+            &:active, &:checked {
+                @include button(header-active);
+            }
+
+            &:disabled {
+                color: transparentize($header_fg, 0.4);
+            }
+        }
+
+        > button + button {
+            border-left-style: none;
+        }
+
+        > button:hover:not(:active),
+        > button:hover + button {
+            box-shadow: inset 1px 0 $header_button_border;
+        }
+
+        > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
+        > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {
+            box-shadow: inset 1px 0 $header_button_border;
+        }
+
+        > button:first-child:hover:not(:active),
+        > entry + button:not(:active):hover {
+            box-shadow: none;
+        }
+
+        > entry:focus + button {
+            border-left-color: if($variant == "light" and $darker == "false", $selected_bg_color, $header_entry_border);
+        }
+    }
+
+    // Headerbar ComboBoxes
+    combobox {
+        &:disabled {
+            color: transparentize($header_fg, 0.6);
+        }
+
+        > .linked > button.combo {
+            @include entry(header-normal);
+
+            &:hover {
+                @include entry(header-focus);
+
+                box-shadow: none;
+            }
+
+            &:disabled {
+                @include entry(header-insensitive);
+            }
+        }
+
+        > .linked > entry.combo {
+            &:dir(ltr) {
+                border-right-style: none;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                @if $variant == "light" and $darker == "false" {
+                    &:focus {
+                        box-shadow: 1px 0 $selected_bg_color;
+                    }
+                }
+            }
+
+            &:dir(rtl) {
+                border-left-style: none;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                @if $variant == "light" and $darker == "false" {
+                    &:focus {
+                        box-shadow: -1px 0 $selected_bg_color;
+                    }
+                }
+            }
+        }
+
+        > .linked > button.combo {
+            &:dir(ltr) {
+                &, &:hover, &:active, &:checked, &:disabled {
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+            }
+
+            &:dir(rtl) {
+                &, &:hover, &:active, &:checked, &:disabled {
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+        }
+    }
+
+    // Headerbar Switches
+    switch {
+        &:backdrop {
+            opacity: 0.75;
+        }
+    }
+
+    progressbar {
+        trough {
+            background-color: if($variant == "light" and $darker == "false", opacify($header_button_border, 0.05), $header_button_border);
+        }
+
+        &:backdrop {
+            opacity: 0.75;
+        }
+    }
+
+    // Headerbar Scale
+    scale {
+        $_trough_bg: if($variant == "light" and $darker == "false", opacify($header_button_border, 0.05), $header_button_border);
+
+        &:backdrop {
+            opacity: 0.75;
+        }
+
+        slider {
+            $_slider_border: if($variant == "light" and $darker == "false", opacify($header_button_border, 0.2), opacify($header_button_border, 0.3));
+            $_slider_bg: if($variant == "light" and $darker == "false", opacify($header_button_bg, 1), lighten(opacify($header_bg, 1), 10%));
+
+            background-color: $_slider_bg;
+            border-color: $_slider_border;
+
+            &:hover {
+                background-color: lighten($_slider_bg, 5%);
+                border-color: $_slider_border;
+            }
+
+            &:active {
+                background-color: $selected_bg_color;
+                border-color: $selected_bg_color;
+            }
+
+            &:disabled {
+                background-color: mix($_slider_bg, $header_bg, 70%);
+                border-color: $_slider_border;
+            }
+        }
+
+        trough {
+            background-color: $_trough_bg;
+
+            &:disabled {
+                background-color: if($variant == "light" and $darker == "false", transparentize($_trough_bg, 0.05), transparentize($_trough_bg, 0.1));
+            }
+        }
+    }
+}
+
+//
+// Buttons on selected backgrounds
+//
+%selected-button {
+    @at-root %normal_selected_button, & {
+        color: $selected_fg_color;
+        background-color: transparentize($selected_fg_color, 1);
+        border-color: transparentize($selected_fg_color, 0.5);
+    }
+
+    &.flat {
+        @include button(undecorated);
+
+        color: $selected_fg_color;
+        background-color: transparentize($selected_fg_color, 1);
+
+        &:disabled {
+            &, label {
+                color: transparentize($selected_fg_color, 0.6);
+            }
+        }
+    }
+
+    &:hover {
+        color: $selected_fg_color;
+        background-color: transparentize($selected_fg_color, 0.8);
+        border-color: transparentize($selected_fg_color, 0.2);
+    }
+
+    &:active, &:active:hover, &:checked {
+        color: $selected_bg_color;
+        background-color: $selected_fg_color;
+        border-color: $selected_fg_color;
+    }
+
+    &:disabled {
+        &, label {
+            color: transparentize($selected_fg_color, 0.5);
+        }
+
+        background-color: transparentize($selected_fg_color, 1);
+        border-color: transparentize($selected_fg_color, 0.6);
+
+        &:active, &:checked {
+            color: $selected_bg_color;
+            background-color: transparentize($selected_fg_color, 0.5);
+            border-color: transparentize($selected_fg_color, 0.6);
+        }
+    }
+}
