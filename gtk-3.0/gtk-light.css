@@ -877,11 +877,11 @@ GraniteWidgetsWelcome .h1, GraniteWidgetsWelcome .h3 { color: rgba(238, 238, 236
 
 .titlebar button.image-button, headerbar button.image-button { padding: 3px 4px; }
 
-.titlebar button.suggested-action, headerbar button.suggested-action { box-shadow: none; border: none; background-image: linear-gradient(to right, #5797f7 0%, #00dcf4 100%); }
+.titlebar button.suggested-action, headerbar button.suggested-action { box-shadow: none; border: none; background-image: #15539e; }
 
-.titlebar button.suggested-action:disabled, .titlebar button.suggested-action:disabled:backdrop, .titlebar button.suggested-action:backdrop, headerbar button.suggested-action:disabled, headerbar button.suggested-action:disabled:backdrop, headerbar button.suggested-action:backdrop { border: none; background-image: linear-gradient(to right, #5797f7 0%, #00dcf4 100%); }
+.titlebar button.suggested-action:disabled, .titlebar button.suggested-action:disabled:backdrop, .titlebar button.suggested-action:backdrop, headerbar button.suggested-action:disabled, headerbar button.suggested-action:disabled:backdrop, headerbar button.suggested-action:backdrop { border: none; background-image: #15539e; }
 
-.titlebar button.suggested-action:disabled:hover, .titlebar button.suggested-action:disabled:active, .titlebar button.suggested-action:disabled:checked, .titlebar button.suggested-action:disabled:backdrop:hover, .titlebar button.suggested-action:disabled:backdrop:active, .titlebar button.suggested-action:disabled:backdrop:checked, .titlebar button.suggested-action:backdrop:hover, .titlebar button.suggested-action:backdrop:active, .titlebar button.suggested-action:backdrop:checked, headerbar button.suggested-action:disabled:hover, headerbar button.suggested-action:disabled:active, headerbar button.suggested-action:disabled:checked, headerbar button.suggested-action:disabled:backdrop:hover, headerbar button.suggested-action:disabled:backdrop:active, headerbar button.suggested-action:disabled:backdrop:checked, headerbar button.suggested-action:backdrop:hover, headerbar button.suggested-action:backdrop:active, headerbar button.suggested-action:backdrop:checked { border: none; background-image: linear-gradient(to right, #5797f7 0%, #00dcf4 100%); }
+.titlebar button.suggested-action:disabled:hover, .titlebar button.suggested-action:disabled:active, .titlebar button.suggested-action:disabled:checked, .titlebar button.suggested-action:disabled:backdrop:hover, .titlebar button.suggested-action:disabled:backdrop:active, .titlebar button.suggested-action:disabled:backdrop:checked, .titlebar button.suggested-action:backdrop:hover, .titlebar button.suggested-action:backdrop:active, .titlebar button.suggested-action:backdrop:checked, headerbar button.suggested-action:disabled:hover, headerbar button.suggested-action:disabled:active, headerbar button.suggested-action:disabled:checked, headerbar button.suggested-action:disabled:backdrop:hover, headerbar button.suggested-action:disabled:backdrop:active, headerbar button.suggested-action:disabled:backdrop:checked, headerbar button.suggested-action:backdrop:hover, headerbar button.suggested-action:backdrop:active, headerbar button.suggested-action:backdrop:checked { border: none; background-image: #15539e; }
 
 .titlebar button.appmenu, headerbar button.appmenu { background: transparent; }
 
@@ -2031,13 +2031,13 @@ row:selected label:backdrop:disabled, label:backdrop:disabled:selected, .selecti
 
 .thunar toolbar entry progress { border-color: #15539e; background-image: none; background-color: transparent; }
 
-.thunar toolbar entry.warning { color: white; border-color: rgba(21, 23, 28, 0.37); background-color: rgba(153, 82, 25, 0.988); }
+.thunar toolbar entry.warning { color: white; border-color: rgba(194, 0, 0, 0.4); background-color: #ea3d01; }
 
 .thunar toolbar entry.warning:focus { color: white; background-color: #dc6502; }
 
 .thunar toolbar entry.warning selection, .thunar toolbar entry.warning selection:focus { background-color: white; color: #dc6502; }
 
-.thunar toolbar entry.error { color: white; border-color: rgba(21, 23, 28, 0.37); background-color: rgba(148, 43, 57, 0.988); }
+.thunar toolbar entry.error { color: white; border-color: rgba(194, 0, 0, 0.4); background-color: #e51620; }
 
 .thunar toolbar entry.error:focus { color: white; background-color: #d32535; }
 
@@ -2055,43 +2055,43 @@ row:selected label:backdrop:disabled, label:backdrop:disabled:selected, .selecti
 
 .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action), .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):not(:hover) { box-shadow: none; }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover { background-color: rgba(134, 144, 165, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover { background-color: rgba(255, 189, 189, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .thunar toolbar .linked:not(.vertical).path-bar > button:disabled { color: rgba(207, 218, 231, 0.4); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .thunar toolbar .linked:not(.vertical).path-bar > button:disabled { color: rgba(240, 240, 234, 0.4); }
 
 .thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button + button, .thunar toolbar .linked:not(.vertical).path-bar > button + button { border-left-style: none; }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):hover { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37), inset -1px 0 rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):hover { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4), inset -1px 0 rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover { box-shadow: inset -1px 0 rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover { box-shadow: inset -1px 0 rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover, .thunar toolbar .linked:not(.vertical).path-bar > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry { border-left-color: rgba(21, 23, 28, 0); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry { border-left-color: rgba(194, 0, 0, 0); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error { border-left-color: rgba(21, 23, 28, 0); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error { border-left-color: rgba(194, 0, 0, 0); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning { border-left-color: rgba(21, 23, 28, 0); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning { border-left-color: rgba(194, 0, 0, 0); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error + entry.warning, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning + entry.error { border-left-color: rgba(21, 23, 28, 0); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error + entry.warning, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning + entry.error { border-left-color: rgba(194, 0, 0, 0); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:focus:last-child { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:focus:last-child { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:drop(active):not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:drop(active):last-child { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:drop(active):not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry:drop(active):last-child { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + combobox > box > button.combo { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry:drop(active):not(:only-child) + combobox > box > button.combo { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning:focus:last-child { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.warning:focus:last-child { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.warning:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:last-child { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:not(:last-child), .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry + entry.error:focus:last-child { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + button, .thunar toolbar .linked:not(.vertical):not(.path-bar) > entry.error:focus:not(:only-child) + combobox > box > button.combo { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar .linked:not(.vertical):not(.path-bar) > button:active + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:checked + entry { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar .linked:not(.vertical):not(.path-bar) > button:active + entry, .thunar toolbar .linked:not(.vertical):not(.path-bar) > button:checked + entry { border-left-color: rgba(194, 0, 0, 0.4); }
 
 .thunar toolbar button.suggested-action.flat { border-color: transparent; background-color: transparent; background-image: none; box-shadow: inset 0 1px rgba(255, 255, 255, 0), 0 1px rgba(238, 238, 236, 0); text-shadow: none; icon-shadow: none; color: #0f3b71; }
 
@@ -2103,21 +2103,21 @@ row:selected label:backdrop:disabled, label:backdrop:disabled:selected, .selecti
 
 .thunar toolbar spinbutton:not(.vertical):focus { color: #f7f7f7; caret-color: #f7f7f7; }
 
-.thunar toolbar spinbutton:not(.vertical) button:hover { background-color: rgba(134, 144, 165, 0.37); }
+.thunar toolbar spinbutton:not(.vertical) button:hover { background-color: rgba(255, 189, 189, 0.4); }
 
-.thunar toolbar spinbutton:not(.vertical) button:disabled { color: rgba(207, 218, 231, 0.4); }
+.thunar toolbar spinbutton:not(.vertical) button:disabled { color: rgba(240, 240, 234, 0.4); }
 
 .thunar toolbar spinbutton:not(.vertical) > button + button { border-left-style: none; }
 
-.thunar toolbar spinbutton:not(.vertical) > button:hover:not(:active), .thunar toolbar spinbutton:not(.vertical) > button:hover + button { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37); }
+.thunar toolbar spinbutton:not(.vertical) > button:hover:not(:active), .thunar toolbar spinbutton:not(.vertical) > button:hover + button { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar spinbutton:not(.vertical) > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover), .thunar toolbar spinbutton:not(.vertical) > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37); }
+.thunar toolbar spinbutton:not(.vertical) > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover), .thunar toolbar spinbutton:not(.vertical) > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4); }
 
 .thunar toolbar spinbutton:not(.vertical) > button:first-child:hover:not(:active), .thunar toolbar spinbutton:not(.vertical) > entry + button:not(:active):hover { box-shadow: none; }
 
-.thunar toolbar spinbutton:not(.vertical) > entry:focus + button { border-left-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar spinbutton:not(.vertical) > entry:focus + button { border-left-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar combobox:disabled { color: rgba(207, 218, 231, 0.2); }
+.thunar toolbar combobox:disabled { color: rgba(240, 240, 234, 0.2); }
 
 .thunar toolbar combobox > .linked > button.combo:hover { box-shadow: none; }
 
@@ -2135,23 +2135,23 @@ row:selected label:backdrop:disabled, label:backdrop:disabled:selected, .selecti
 
 .thunar toolbar switch:backdrop { opacity: 0.75; }
 
-.thunar toolbar progressbar trough { background-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar progressbar trough { background-color: rgba(194, 0, 0, 0.4); }
 
 .thunar toolbar progressbar:backdrop { opacity: 0.75; }
 
 .thunar toolbar scale:backdrop { opacity: 0.75; }
 
-.thunar toolbar scale slider { background-color: #454c5c; border-color: rgba(21, 23, 28, 0.67); }
+.thunar toolbar scale slider { background-color: #ff3333; border-color: rgba(194, 0, 0, 0.7); }
 
-.thunar toolbar scale slider:hover { background-color: #50586b; border-color: rgba(21, 23, 28, 0.67); }
+.thunar toolbar scale slider:hover { background-color: #ff4d4d; border-color: rgba(194, 0, 0, 0.7); }
 
 .thunar toolbar scale slider:active { background-color: #15539e; border-color: #15539e; }
 
-.thunar toolbar scale slider:disabled { background-color: rgba(63, 69, 84, 0.991); border-color: rgba(21, 23, 28, 0.67); }
+.thunar toolbar scale slider:disabled { background-color: #ff2424; border-color: rgba(194, 0, 0, 0.7); }
 
-.thunar toolbar scale trough { background-color: rgba(21, 23, 28, 0.37); }
+.thunar toolbar scale trough { background-color: rgba(194, 0, 0, 0.4); }
 
-.thunar toolbar scale trough:disabled { background-color: rgba(21, 23, 28, 0.27); }
+.thunar toolbar scale trough:disabled { background-color: rgba(194, 0, 0, 0.3); }
 
 .thunar toolbar.selection-mode button:hover, .nautilus-window .floating-bar button, .nemo-window .floating-bar button, .lock-dialog button { color: #f7f7f7; background-color: rgba(247, 247, 247, 0); border-color: rgba(247, 247, 247, 0.5); }
 
@@ -2214,7 +2214,7 @@ row:selected label:backdrop:disabled, label:backdrop:disabled:selected, .selecti
 
 .budgie-menu .category-button:active { box-shadow: inset 0 2px 2px -2px rgba(0, 0, 0, 0.2); }
 
-.budgie-menu .category-button:checked { color: #f7f7f7; background: linear-gradient(to right, #5797f7 0%, #00dcf4 100%); }
+.budgie-menu .category-button:checked { color: #f7f7f7; background: #15539e; }
 
 .budgie-menu .category-button:checked:hover { color: rgba(247, 247, 247, 0.9); }
 
@@ -2476,7 +2476,7 @@ button.raven-trigger:backdrop:active, button.raven-trigger:backdrop:checked { bo
 
 .raven .powerstrip button.image-button:active { background: #6f42c1; color: #f7f7f7; }
 
-.raven .powerstrip button.image-button:first-child { background: linear-gradient(to right, #5797f7 0%, #00dcf4 100%); }
+.raven .powerstrip button.image-button:first-child { background: #15539e; }
 
 .raven .powerstrip button.image-button:first-child:hover { background: rgba(21, 83, 158, 0.85); }
 
@@ -2928,7 +2928,7 @@ ConversationListView .view .cell:selected, ConversationListView iconview .cell:s
 
 .gedit-bottom-panel-paned notebook > header.top > tabs > tab:checked, terminal-window notebook > header.top > tabs > tab:checked { box-shadow: inset 0 -1px #1b1b1b; }
 
-terminal-window notebook > header.top, .mate-terminal notebook > header.top { padding-top: 3px; box-shadow: inset 0 1px #262a33, inset 0 -1px #1b1b1b; }
+terminal-window notebook > header.top, .mate-terminal notebook > header.top { padding-top: 3px; box-shadow: inset 0 1px #eb0000, inset 0 -1px #1b1b1b; }
 
 terminal-window notebook > header.top button, .mate-terminal notebook > header.top button { padding: 0; min-width: 24px; min-height: 24px; }
 
@@ -2977,17 +2977,17 @@ terminal-window notebook > header.top button, .mate-terminal notebook > header.t
 
 .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:not(:last-child):not(:only-child) { margin: 0 0 1px 0; }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover { background-color: rgba(134, 144, 165, 0.37); }
+.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover { background-color: rgba(255, 189, 189, 0.4); }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled { color: rgba(207, 218, 231, 0.4); }
+.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:disabled { color: rgba(240, 240, 234, 0.4); }
 
 .nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button + button { border-left-style: none; }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):hover { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37), inset -1px 0 rgba(21, 23, 28, 0.37); }
+.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):hover { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4), inset -1px 0 rgba(194, 0, 0, 0.4); }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover { box-shadow: inset -1px 0 rgba(21, 23, 28, 0.37); }
+.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):first-child:hover { box-shadow: inset -1px 0 rgba(194, 0, 0, 0.4); }
 
-.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover { box-shadow: inset 1px 0 rgba(21, 23, 28, 0.37); }
+.nemo-window .primary-toolbar widget.raised.linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child):last-child:hover { box-shadow: inset 1px 0 rgba(194, 0, 0, 0.4); }
 
 .nemo-window .nemo-inactive-pane .view, .nemo-window .nemo-inactive-pane iconview { color: #919190; background-color: #212121; }
 
@@ -2995,7 +2995,7 @@ terminal-window notebook > header.top button, .mate-terminal notebook > header.t
 
 .thunar scrolledwindow.standard-view { border-top-width: 0; }
 
-.thunar toolbar { color: rgba(207, 218, 231, 0.8); background-color: #2f343f; box-shadow: none; border-width: 0 0 1px 0; border-style: solid; border-image: linear-gradient(to bottom, #2f343f, rgba(32, 35, 43, 0.97)) 1 0 1 0; }
+.thunar toolbar { color: rgba(240, 240, 234, 0.8); background-color: red; box-shadow: none; border-width: 0 0 1px 0; border-style: solid; border-image: linear-gradient(to bottom, red, #db0000) 1 0 1 0; }
 
 .thunar scrolledwindow.sidebar { border-top-color: rgba(40, 43, 52, 0.95); }
 
