@@ -1,0 +1,136 @@
+/* Message list */
+.message-list {
+    width: 31.5em;
+
+    .message-title {
+        color: darken($fg_color, 5%);
+    }
+
+    .message-content {}
+}
+
+.message-list-clear-button.button {
+    @include button(normal);
+
+    &:hover, &:focus {
+        @include button(hover);
+    }
+
+    margin: 1.5em 1.5em 0;
+}
+
+.message-list-sections {
+    spacing: 1em;
+}
+
+.message-list-section,
+.message-list-section-list {
+    spacing: 0.4em;
+}
+
+.message-list-section-close {
+    & > StIcon {
+        icon-size: 16px;
+        border-radius: 16px;
+        padding: 8px;
+        color: $fg_color;
+        background-color: transparent;
+    }
+
+    &:hover > StIcon,
+    &:focus > StIcon
+    &:active > StIcon {
+        color: $red;
+        background: transparent;
+    }
+}
+
+.message {
+    &:hover, &:focus {
+        background-color: darken($bg_color, 1%);
+
+        //@include gradient();
+        box-shadow: 2px 0px 0px 0px $g2 inset;
+    }
+
+    border-radius: 1px;
+    background: transparent;
+}
+
+.message-icon-bin {
+    padding: 10px 3px 10px 10px;
+
+    &:rtl {
+        padding: 10px 10px 10px 3px;
+    }
+}
+
+.message-icon-bin > StIcon {
+    icon-size: 16px;
+    -st-icon-style: symbolic;
+}
+
+.message-secondary-bin {
+    padding: 0 12px;
+}
+
+.message-secondary-bin > .event-time {
+    color: darken($fg_color, 15%);
+    font-size: 0.7em;
+
+    /* HACK: the label should be baseline-aligned with a 1em label,
+             fake this with some bottom padding */
+    padding-bottom: 0.13em;
+}
+
+.message-secondary-bin > StIcon {
+    icon-size: 16px;
+}
+
+.message-title {
+    //color: darken($fg_color,5%);
+}
+
+.message-content {
+    //  color: darken($fg_color,20%);
+    padding: 10px;
+
+    *:hover > StIcon,
+    *:focus > StIcon {
+        color: $red;
+    }
+}
+
+.message-media-control {
+    padding: 12px;
+    color: darken($fg_color, 20%);
+
+    &:last-child:ltr {
+        padding-right: 18px;
+    }
+
+    &:last-child:rtl {
+        padding-left: 18px;
+    }
+
+    &:hover {
+        color: $fg_color;
+    }
+
+    &:insensitive {
+        color: darken($fg_color, 40%);
+    }
+}
+
+.media-message-cover-icon {
+    icon-size: 48px !important;
+
+    &.fallback {
+        color: lighten($bg_color, 10%);
+        background-color: $bg_color;
+        border: 2px solid $bg_color;
+        border-radius: 2px;
+        icon-size: 16px;
+        padding: 8px;
+    }
+}

@@ -19,6 +19,10 @@ $darker: "true" !default;
 #2196f3
 */
 
+$font-size: 10;
+$font-family: Roboto, Ubuntu, Cantarell, Sans-Serif;
+$corner-radius: 2px;
+
 //
 // Bootstrap coloring system
 // Ref: https://getbootstrap.com/docs/4.3/getting-started/theming/#color
@@ -35,9 +39,12 @@ $gray-600: #6c757d !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
+
 $black: #000 !default;
+
 $grays: () !default;
 $grays: map-merge(("100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900), $grays) !default;
+
 $blue: #007bff !default;
 $indigo: #6610f2 !default;
 $purple: #6f42c1 !default;
@@ -49,10 +56,13 @@ $green: #28a745 !default;
 $teal: #20c997 !default;
 $cyan: #17a2b8 !default;
 $lime: #84ff39 !default;
-$g1: #00e8b7 !default;
-$g2: #00e8b7 !default;
+
 $colors: () !default;
 $colors: map-merge(("blue": $blue, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray-600, "gray-dark": $gray-800), $colors) !default;
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8% !default;
+
 $primary: $blue !default;
 $secondary: $gray-600 !default;
 $success: $green !default;
@@ -65,9 +75,6 @@ $theme-colors: () !default;
 
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(("primary": $primary, "secondary": $secondary, "success": $success, "info": $info, "warning": $warning, "danger": $danger, "light": $light, "dark": $dark), $theme-colors) !default;
-
-// Set a specific jump point for requesting color jumps
-$theme-color-interval: 8% !default;
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
 $yiq-contrasted-threshold: 150 !default;
@@ -82,11 +89,18 @@ $backdrop_transition: 200ms ease-out !default;
 $sidebar_backdrop_transition: 200ms $ease-out-quad !default;
 $button_transition: all 200ms $ease-out-quad !default;
 
+$g1: $primary !default;
+$g2: $primary !default;
+
 // When color definition differs for dark and light variant
 // it gets @if ed depending on $variant
-$base_color: if($variant == "light", #ffffff, lighten(desaturate(#241f31, 100%), 2%)) !default;
+$base_color: $gray-900;
+
+// if($variant == "light", #ffffff, lighten(desaturate(#241f31, 100%), 2%)) !default;
 $text_color: if($variant == "light", black, white) !default;
-$bg_color: if($variant == "light", #f6f5f4, darken(desaturate(#3d3846, 100%), 4%)) !default;
+$bg_color: $base_color;
+
+// if($variant == "light", #f6f5f4, darken(desaturate(#3d3846, 100%), 4%)) !default;
 $fg_color: if($variant == "light", #2e3436, #eeeeec) !default;
 
 //252b2f
@@ -94,7 +108,6 @@ $main_dark: darken($bg_color, 5%) !default;
 $gray: lighten($bg_color, 7%) !default;
 $fg_color: #98abb2 !default;
 $dracula: #222e39 !default;
-$topbar_color: lighten($fg_color, 40%) !default;
 
 $top_highlight: transparentize(white, 0.9) !default;
 $bottom_highlight: transparentize(black, 0.9) !default;
@@ -193,8 +206,11 @@ $osd_outer_borders_color: transparentize(white, 0.9) !default;
 $panel_bg: darken($dark_sidebar_bg, 4.7%) !default;
 $panel_fg: $dark_sidebar_fg !default;
 
-$_sidebar_color: if($variant == "light", #222e39, #161925) !default;
+//if($variant == "light", #222e39, #161925) !default;
 $sidebar_bg_color: mix($bg_color, $base_color, 50%) !default;
+$_sidebar_color: transparent;
+$_sidebar_color_alt: transparentize($primary, $theme-color-interval * 10 / 100);
+
 $base_hover_color: transparentize($fg_color, 0.95) !default;
 $tooltip_borders_color: $osd_outer_borders_color !default;
 $shadow_color: transparentize(black, 0.9) !default;
@@ -272,6 +288,15 @@ $scale_bg: if($variant == "light", transparentize(black, 0.86), transparentize(w
 $scale_disabled_bg: if($variant == "light", transparentize(black, 0.94), transparentize(white, 0.94)) !default;
 $suggested_bg_color: linear-gradient(to right, #5797f7 0%, #00dcf4 100%) !default;
 $menu_shadow_color: if($variant == "light", transparentize(rgb(122, 122, 122), 0.6), transparent) !default;
+
+// gnome-shell
+$topbar_color: lighten($fg_color, 40%) !default;
+$_shell_fg_color: $fg_color;
+$_bubble_bg_color: $osd_bg_color;
+$_bubble_fg_color: $fg_color;
+$_bubble_borders_color: $fg_color;
+$_bubble_transparent: transparentize($osd_bg_color, 0.17);
+$topbar_bg_color: transparentize($base_color, 0.35);
 
 @import "_mixings";
 @import "_drawing";

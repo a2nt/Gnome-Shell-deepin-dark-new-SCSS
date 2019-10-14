@@ -1,0 +1,55 @@
+//
+// App Vault/Grid
+//
+.icon-grid {
+    spacing: 30px;
+    -shell-grid-horizontal-item-size: 136px;
+    -shell-grid-vertical-item-size: 136px;
+
+    .overview-icon {
+        icon-size: 96px;
+    }
+}
+
+.system-action-icon {
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 99px;
+    icon-size: 48px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+//.app-display { spacing: 20px; }
+
+//favorties | all toggle container
+.app-view-controls {
+    padding-bottom: 32px;
+}
+
+//favorties | all toggle button
+.app-view-control {
+    padding: 4px 32px;
+
+    @include button(osd);
+
+    &:hover {
+        @include button(osd-hover);
+    }
+
+    &:checked {
+        color: $selected_fg_color;
+        background-color: $selected_bg_color;
+    }
+
+    &:first-child:ltr,
+    &:last-child:rtl {
+        border-radius: 2px 0 0 2px;
+        border-right-width: 0;
+    }
+
+    &:last-child:ltr,
+    &:first-child:rtl {
+        border-radius: 0 2px 2px 0;
+        border-left-width: 0;
+    }
+}

@@ -1,0 +1,138 @@
+/* DASHBOARD */
+
+#dash {
+    @include fontsize($font-size);
+
+    color: $osd_fg_color;
+    background-color: $dark_sidebar_bg;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-left: 0px;
+    padding: 0;
+    border-radius: 0;
+
+    &:rtl {
+        border-radius: 0;
+    }
+
+    .right &,
+    &:rtl {
+        border-left: 1px;
+        border-right: 0px;
+        padding: 0;
+    }
+
+    .top &, .bottom & {
+        padding: 0;
+    }
+
+    .placeholder {
+        background-position: center;
+        background-image: url("assets/dash-placeholder.svg");
+        background-size: contain;
+        height: 24px;
+    }
+
+    .empty-dash-drop-target {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.dash-item-container > StWidget {
+    &, &:rtl, .right & {
+        padding: 0;
+    }
+
+    .top &, .bottom & {
+        padding: 0;
+    }
+}
+
+//osd tooltip
+.dash-label {
+    border-radius: 0;
+    padding: 4px 12px;
+    color: $_bubble_fg_color;
+    background-color: $_bubble_bg_color;
+    text-align: center;
+    -x-offset: 3px;
+
+    .bottom &, .top & {
+        -y-offset: 3px;
+        -x-offset: 0;
+    }
+}
+
+// Dash Buttons
+#dash .app-well-app {
+    margin-top: 1px;
+
+    &:hover .overview-icon,
+    .right &:hover .overview-icon,
+    .bottom &:hover .overview-icon,
+    .top &:hover .overview-icon {
+        background-color: $selected_bg_color;
+        border-radius: 0;
+    }
+
+    &:active .overview-icon,
+    .right &:active .overview-icon,
+    .bottom &:active .overview-icon,
+    .top &:active .overview-icon {
+        border-radius: 0;
+        box-shadow: none;
+        background-color: darken($selected_bg_color, $theme-color-interval);
+    }
+}
+
+#dash .app-well-app-running-dot,
+#dashtodockContainer .app-well-app-running-dot {
+    width: 5px;
+    height: 5px;
+    background-color: $selected_bg_color;
+    border-radius: 5px;
+    margin-bottom: 0;
+}
+
+#dashtodockContainer {
+    // Add missing 1px margin for finer .show-apps-icon alignment
+    // via margin property instead to keep 1px smaller .show-apps-icon size
+    // like standard #dash styling. Better than 1px transparent border.
+    .show-apps .overview-icon {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    @each $var in 1, 2, 3, 4 {
+        .running#{$var} .app-well-app-running-dot {
+            background-image: url("assets/dash/running#{$var}.svg");
+        }
+    }
+}
+
+.show-apps {
+    margin: 0;
+    border-radius: 0;
+
+    .overview-icon {
+        background-color: transparentize(black, 0.5);
+        border-radius: 0;
+        padding: 6px;
+        border: 0px;
+        transition-duration: 0ms;
+        text-align: center;
+    }
+
+    &:hover .overview-icon,
+    &:focus .overview-icon,
+    &:selected .overview-icon {
+        border-radius: 0;
+    }
+
+    &:active .overview-icon,
+    &:active .show-apps-icon,
+    &:checked .overview-icon,
+    &:checked .show-apps-icon {
+        border-radius: 0;
+    }
+}
