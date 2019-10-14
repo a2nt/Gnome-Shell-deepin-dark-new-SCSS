@@ -68,6 +68,12 @@ $yiq-contrasted-threshold: 150 !default;
 $yiq-text-dark: $gray-900 !default;
 $yiq-text-light: $white !default;
 
+$ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$asset_suffix: if($variant == "dark", "-dark", "");
+$backdrop_transition: 200ms ease-out;
+$sidebar_backdrop_transition: 200ms $ease-out-quad;
+$button_transition: all 200ms $ease-out-quad;
+
 // When color definition differs for dark and light variant
 // it gets @if ed depending on $variant
 $base_color: if($variant == "light", #ffffff, lighten(desaturate(#241f31, 100%), 2%)) !default;
@@ -96,6 +102,7 @@ $link_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($s
 $link_visited_color: if($variant == "light", darken($selected_bg_color, 20%), lighten($selected_bg_color, 10%)) !default;
 $top_hilight: $borders_edge !default;
 $dark_fill: mix($borders_color, $bg_color, 50%) !default;
+$headerbar_fg_color: $text_color;
 $headerbar_color: if($variant == "light", lighten($bg_color, 5%), darken($bg_color, 3%)) !default;
 $menu_color: if($variant == "light", $base_color, mix($bg_color, $base_color, 20%)) !default;
 $popover_bg_color: $bg_color !default;
@@ -105,10 +112,20 @@ $scrollbar_slider_color: mix($fg_color, $bg_color, 60%) !default;
 $scrollbar_slider_hover_color: mix($fg_color, $bg_color, 80%) !default;
 $scrollbar_slider_active_color: if($variant == "light", darken($selected_bg_color, 10%), lighten($selected_bg_color, 10%)) !default;
 
-$warning_color: darken($orange, 10%) !default;
-$error_color: darken($red, 5%) !default;
-$success_color: if($variant == "light", #33d17a, darken(#33d17a, 10%)) !default;
-$destructive_color: if($variant == "light", #e01b24, darken(#e01b24, 10%)) !default;
+// Infobar colors
+$info_color: $lime;
+$question_color: $cyan;
+
+// Panel colors
+$panel_bg_color: transparentize(black, 0);
+$panel_fg_color: #C3C7D1;
+$panel_borders_color: transparentize(black, 0.8);
+
+$warning_color: if($variant == "light", $orange, darken($orange, 10%));
+$error_color: if($variant == "light", $red, darken($red, 5%));
+$success_color: if($variant == "light", $cyan, darken($cyan, 10%));
+$destructive_color: if($variant == "light", darken($red, 5%), darken($red, 10%));
+$suggested_color: if($variant == "light", $selected_bg_color, darken($selected_bg_color, 10%));
 
 $osd_fg_color: $fg_color !default;
 $osd_text_color: white !default;
@@ -119,6 +136,7 @@ $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 50%) !d
 $osd_borders_color: transparentize(black, 0.3) !default;
 $osd_outer_borders_color: transparentize(white, 0.9) !default;
 
+$_sidebar_color: if($variant == "light", #222e39, #161925);
 $sidebar_bg_color: mix($bg_color, $base_color, 50%) !default;
 $base_hover_color: transparentize($fg_color, 0.95) !default;
 $tooltip_borders_color: $osd_outer_borders_color !default;
@@ -131,7 +149,10 @@ $insensitive_bg_color: mix($bg_color, $base_color, 60%) !default;
 $insensitive_borders_color: $borders_color !default;
 
 //colors for the backdrop state, derived from the main colors.
+$backdrop_selected_bg_color: transparentize($selected_bg_color, 0.4);
 $backdrop_bg_color: $bg_color !default;
+
+$backdrop_headerbar_fg_color: if($variant == "light", transparentize($headerbar_fg_color, 0.5), transparentize($headerbar_fg_color, 0.2));
 $backdrop_base_color: if($variant == "light", darken($base_color, 1%), lighten($base_color, 1%)) !default;
 $backdrop_text_color: mix($text_color, $backdrop_base_color, 80%) !default;
 $backdrop_fg_color: mix($fg_color, $backdrop_bg_color, 50%) !default;
@@ -189,6 +210,12 @@ $wm_icon_active_bg: #ffffff !default;
 $toolbar_icon_color: $theme_text_color !default;
 $hightlight_color: $active_color !default;
 $hightlight_line: rgba(255, 255, 255, 0.02) !default;
+
+$scale_bg: if($variant == "light", transparentize(black, 0.86), transparentize(white, 0.86));
+$scale_disabled_bg: if($variant == "light", transparentize(black, 0.94), transparentize(white, 0.94));
+$suggested_bg_color: linear-gradient(to right, #5797f7 0%, #00dcf4 100%);
+$destructive_bg_color: linear-gradient(to right, #ee0979, #ff6a00);
+$menu_shadow_color: if($variant == "light", transparentize(rgb(122, 122, 122), 0.6), transparent);
 
 @import "_mixings";
 @import "_drawing";
