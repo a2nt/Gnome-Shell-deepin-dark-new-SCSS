@@ -39,7 +39,7 @@ stage {
     color: $fg_color;
     background: $main_dark;
     text-shadow: none;
-    icon-shadow: none;
+    -gtk-icon-shadow: none;
     box-shadow: none;
 
     &:insensitive {
@@ -97,7 +97,7 @@ StEntry {
     selected-color: $selected_fg_color;
 
     StIcon.capslock-warning {
-        icon-size: 16px;
+        font-size: 16px;
         warning-color: $warning_color;
         padding: 0 4px;
     }
@@ -128,7 +128,8 @@ StScrollBar {
         background-color: transparent;
     }
 
-    StButton#vhandle, StButton#hhandle {
+    StButton#vhandle,
+    StButton#hhandle {
         border-radius: 8px;
         background-color: mix($fg_color, $bg_color, 20%);
 
@@ -182,25 +183,26 @@ StScrollBar {
 
 .check-box {
     StBoxLayout {
-        spacing: .8em;
+        spacing: 0.8em;
     }
 
     StBin {
         width: 24px;
         height: 22px;
-        background-image: url("assets/checkbox-off.svg");
+        background-image: url('assets/checkbox-off.svg');
     }
 
-    &:focus, &:hover StBin {
-        background-image: url("assets/checkbox-off-focused.svg");
+    &:focus,
+    &:hover StBin {
+        background-image: url('assets/checkbox-off-focused.svg');
     }
 
     &:checked StBin {
-        background-image: url("assets/checkbox.svg");
+        background-image: url('assets/checkbox.svg');
     }
 
     &:focus:checked StBin {
-        background-image: url("assets/checkbox-focused.svg");
+        background-image: url('assets/checkbox-focused.svg');
     }
 }
 
@@ -211,19 +213,19 @@ StScrollBar {
     background-size: contain;
 
     //Gnome 3.32//
-    background-image: url("assets/toggle-off.svg");
+    background-image: url('assets/toggle-off.svg');
 
     &:checked {
-        background-image: url("assets/toggle-on.svg");
+        background-image: url('assets/toggle-on.svg');
     }
 }
 
 @each $v in us, intl {
     .toggle-switch-#{$v} {
-        background-image: url("assets/toggle-off.svg");
+        background-image: url('assets/toggle-off.svg');
 
         &:checked {
-            background-image: url("assets/toggle-on.svg");
+            background-image: url('assets/toggle-on.svg');
         }
     }
 }
@@ -282,7 +284,7 @@ StScrollBar {
 
         font-weight: bold;
         color: darken($osd_fg_color, 10%);
-        padding-bottom: .4em;
+        padding-bottom: 0.4em;
     }
 }
 
@@ -305,7 +307,7 @@ StScrollBar {
 
 .message-dialog-icon {
     min-width: 48px;
-    icon-size: 48px;
+    font-size: 48px;
 }
 
 .message-dialog-title {
@@ -327,7 +329,8 @@ StScrollBar {
 
         color: #fff;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background: darken($error_color, 3%);
             color: #fff;
         }
@@ -411,12 +414,12 @@ StScrollBar {
 
 .end-session-dialog-app-list-item-description {
     color: darken($fg_color, 5%);
-    font-size: 10pt;
+    @include fontsize($font-size);
 }
 
 /* ShellMountOperation Dialogs */
 .shell-mount-operation-icon {
-    icon-size: 48px;
+    font-size: 48px;
 }
 
 .mount-dialog {
@@ -484,7 +487,7 @@ StScrollBar {
 }
 
 .mount-dialog-app-list-item-name {
-    font-size: 10pt;
+    @include fontsize($font-size);
 }
 
 /* Password or Authentication Dialog */
@@ -519,13 +522,13 @@ StScrollBar {
 }
 
 .prompt-dialog-error-label {
-    font-size: 10pt;
+    @include fontsize($font-size);
     color: $error_color;
     padding-bottom: 8px;
 }
 
 .prompt-dialog-info-label {
-    font-size: 10pt;
+    @include fontsize($font-size);
     padding-bottom: 8px;
 }
 
@@ -534,7 +537,7 @@ StScrollBar {
 }
 
 .prompt-dialog-null-label {
-    font-size: 10pt;
+    @include fontsize($font-size);
     padding-bottom: 8px;
 }
 
@@ -584,7 +587,9 @@ StScrollBar {
     border: 1px solid $_bubble_borders_color;
     border-radius: 12px;
 
-    &:active, &:hover, &:focus {
+    &:active,
+    &:hover,
+    &:focus {
         background-color: $selected_bg_color;
     }
 }
@@ -595,7 +600,7 @@ StScrollBar {
 }
 
 .audio-selection-device-icon {
-    icon-size: 64px;
+    font-size: 64px;
 }
 
 /* Access Dialog */
@@ -643,7 +648,8 @@ StScrollBar {
     min-width: 15em;
     background-color: transparent;
 
-    .popup-menu-arrow {}
+    .popup-menu-arrow {
+    }
 
     //defined globally in the TOP BAR
     .popup-sub-menu {
@@ -659,11 +665,11 @@ StScrollBar {
         spacing: 12px;
 
         &:ltr {
-            padding: .4em 1.75em .4em 0em;
+            padding: 0.4em 1.75em 0.4em 0em;
         }
 
         &:rtl {
-            padding: .4em 0em .4em 1.75em;
+            padding: 0.4em 0em 0.4em 1.75em;
         }
 
         &:checked {
@@ -771,7 +777,10 @@ StScrollBar {
         color: $osd_fg_color;
         border: 1px solid $borders_color;
         -barlevel-height: 0.4em;
-        -barlevel-background-color: transparentize(darken($main_dark, 15%), 0.5);
+        -barlevel-background-color: transparentize(
+            darken($main_dark, 15%),
+            0.5
+        );
         -barlevel-active-background-color: $selected_bg_color;
         -barlevel-overdrive-color: $red;
         -barlevel-overdrive-separator-width: 0.2em;
@@ -883,7 +892,8 @@ StScrollBar {
     spacing: 8px;
 }
 
-.ws-switcher-active-up, .ws-switcher-active-down {
+.ws-switcher-active-up,
+.ws-switcher-active-down {
     height: 50px;
     background-color: $selected_bg_color;
     color: $selected_fg_color;
@@ -894,11 +904,11 @@ StScrollBar {
 }
 
 .ws-switcher-active-up {
-    background-image: url("assets/ws-switch-arrow-up.png");
+    background-image: url('assets/ws-switch-arrow-up.png');
 }
 
 .ws-switcher-active-down {
-    background-image: url("assets/ws-switch-arrow-down.png");
+    background-image: url('assets/ws-switch-arrow-down.png');
 }
 
 .ws-switcher-box {
@@ -943,7 +953,13 @@ StScrollBar {
     /* transition from solid to transparent */
     transition-duration: 500ms;
     font-weight: bold;
-    height: 1.86em;
+    @if $hidpi {
+        height: 2 * 1.86em;
+    } @else {
+        height: 1.86em;
+    }
+    @include fontsize($font-size);
+
     padding: 0px 0px;
 
     &.unlock-screen,
@@ -952,7 +968,8 @@ StScrollBar {
         background-color: transparent;
     }
 
-    #panelLeft, #panelCenter {
+    #panelLeft,
+    #panelCenter {
         // spacing between activities<>app menu and such
         spacing: 4px;
     }
@@ -963,11 +980,15 @@ StScrollBar {
         -panel-corner-border-width: 2px;
         -panel-corner-border-color: transparent;
 
-        &:active, &:overview, &:focus {
+        &:active,
+        &:overview,
+        &:focus {
             -panel-corner-border-color: lighten($selected_bg_color, 5%);
         }
 
-        &.lock-screen, &.login-screen, &.unlock-screen {
+        &.lock-screen,
+        &.login-screen,
+        &.unlock-screen {
             -panel-corner-radius: 0;
             -panel-corner-background-color: transparent;
             -panel-corner-border-color: transparent;
@@ -982,19 +1003,20 @@ StScrollBar {
         text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
         transition-duration: 100ms;
 
+    	@include fontsize($font-size);
+
         .app-menu-icon {
             -st-icon-style: symbolic;
             margin-left: 4px;
             margin-right: 4px;
 
             //dimensions of the icon are hardcoded
-
         }
 
         .system-status-icon,
         .app-menu-icon > StIcon,
         .popup-menu-arrow {
-            icon-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
+            -gtk-icon-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
         }
 
         &:hover {
@@ -1003,7 +1025,10 @@ StScrollBar {
             transition-duration: 200ms;
         }
 
-        &:active, &:overview, &:focus, &:checked {
+        &:active,
+        &:overview,
+        &:focus,
+        &:checked {
             // Trick due to St limitations. It needs a background to draw
             // a box-shadow
             box-shadow: none;
@@ -1017,16 +1042,19 @@ StScrollBar {
             .system-status-icon,
             .app-menu-icon > StIcon,
             .popup-menu-arrow {
-                icon-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
+                -gtk-icon-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9);
             }
 
             & > .system-status-icon {
-                icon-shadow: red 0 2px 2px;
+                -gtk-icon-shadow: red 0 2px 2px;
             }
         }
 
         .system-status-icon {
-            icon-size: 1.09em;
+
+                font-size: 1.09em;
+
+
             padding: 0 5px;
         }
 
@@ -1035,7 +1063,9 @@ StScrollBar {
         .lock-screen & {
             color: lighten($fg_color, 10%);
 
-            &:focus, &:hover, &:active {
+            &:focus,
+            &:hover,
+            &:active {
                 color: lighten($fg_color, 10%);
             }
         }
@@ -1068,28 +1098,28 @@ StScrollBar {
         .system-status-icon,
         .app-menu-icon > StIcon,
         .popup-menu-arrow {
-            icon-shadow: none;
+            -gtk-icon-shadow: none;
         }
     }
 }
 
-@import "./_components/_calendar";
-@import "./_components/_messages";
+@import './_components/_calendar';
+@import './_components/_messages';
 
 // a little unstructured mess:
 
 .system-switch-user-submenu-icon.user-icon {
-    icon-size: 20px;
+    font-size: 20px;
     padding: 0 2px;
 }
 
 .system-switch-user-submenu-icon.default-icon {
-    icon-size: 16px;
+    font-size: 16px;
     padding: 0 4px;
 }
 
 #appMenu {
-    spinner-image: url("assets/process-working.svg");
+    spinner-image: url('assets/process-working.svg');
     spacing: 4px;
 
     .label-shadow {
@@ -1114,7 +1144,8 @@ StScrollBar {
     background: darken($bg_color, 3%);
     padding: 13px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         border: 1px solid $selected_bg_color;
         color: $selected_bg_color;
         background: transparent;
@@ -1127,7 +1158,7 @@ StScrollBar {
     }
 
     & > StIcon {
-        icon-size: 16px;
+        font-size: 16px;
     }
 }
 
@@ -1135,12 +1166,12 @@ StScrollBar {
 .ripple-box {
     width: 52px;
     height: 52px;
-    background-image: url("assets/corner-ripple-ltr.png");
+    background-image: url('assets/corner-ripple-ltr.png');
     background-size: contain;
 }
 
 .ripple-box:rtl {
-    background-image: url("assets/corner-ripple-rtl.png");
+    background-image: url('assets/corner-ripple-rtl.png');
 }
 
 // not really top bar only
@@ -1150,14 +1181,14 @@ StScrollBar {
 }
 
 .popup-menu-icon {
-    icon-size: 1.09em;
+    font-size: 1.09em;
 }
 
 //close buttons
 
 .window-close {
     background-color: transparent;
-    background-image: url("assets/close-window.svg");
+    background-image: url('assets/close-window.svg');
     background-size: 32px;
     border: none;
     box-shadow: none;
@@ -1205,7 +1236,7 @@ StScrollBar {
 }
 
 .nm-dialog-header-icon {
-    icon-size: 32px;
+    font-size: 32px;
 }
 
 .nm-dialog-scroll-view {
@@ -1229,11 +1260,11 @@ StScrollBar {
 }
 
 .nm-dialog-icons {
-    spacing: .5em;
+    spacing: 0.5em;
 }
 
 .nm-dialog-icon {
-    icon-size: 16px;
+    font-size: 16px;
 }
 
 .no-networks-label {
@@ -1303,12 +1334,13 @@ StScrollBar {
     }
 
     .search-entry-icon {
-        icon-size: 1em;
+        font-size: 1em;
         padding: 0 4px;
         color: transparentize($fg_color, 0.3);
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         background-color: transparentize($bg_color, 0.2);
 
         .search-entry-icon {
@@ -1380,19 +1412,22 @@ StScrollBar {
     padding: 15px;
 }
 
-@import "_components/_dashboard";
-@import "_components/_app-grid";
+@import '_components/_dashboard';
+@import '_components/_app-grid';
 
 //Icon tile
 .search-provider-icon,
 .list-search-result {
     @extend %icon_tile;
 
-    &:active, &:checked {
+    &:active,
+    &:checked {
         background-color: transparentize(darken($osd_bg_color, 10%), 0.1);
     }
 
-    &:focus, &:selected, &:hover {
+    &:focus,
+    &:selected,
+    &:hover {
         background-color: transparentize($bg_color, 0.7);
         transition-duration: 200ms;
     }
@@ -1502,7 +1537,7 @@ StScrollBar {
 
     &:checked .page-indicator-icon {
         background-image: none;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         transition-duration: 0s;
     }
 }
@@ -1569,7 +1604,7 @@ StScrollBar {
 
 // Banners
 .notification-banner {
-    font-size: 11pt;
+    @include fontsize($font-size);
     width: 34em;
     margin: 5px;
     border-radius: 3px;
@@ -1600,7 +1635,7 @@ StScrollBar {
     }
 
     .secondary-icon {
-        icon-size: 1.09em;
+        font-size: 1.09em;
     }
 
     .notification-actions {
@@ -1621,7 +1656,8 @@ StScrollBar {
             border-radius: 0 0 3px 0;
         }
 
-        &:hover, &focus {
+        &:hover,
+        &focus {
             background-color: darken($bg_color, 2%);
             color: $selected_bg_color;
         }
@@ -1629,7 +1665,7 @@ StScrollBar {
 }
 
 .summary-source-counter {
-    font-size: 10pt;
+    @include fontsize($font-size);
     font-weight: bold;
     height: 1.6em;
     width: 1.6em;
@@ -1645,7 +1681,7 @@ StScrollBar {
 }
 
 .secondary-icon {
-    icon-size: 1.09em;
+    font-size: 1.09em;
 }
 
 //chat bubbles
@@ -1686,7 +1722,7 @@ StScrollBar {
 
 .chat-meta-message {
     padding-left: 4px;
-    font-size: 9pt;
+    @include fontsize($font-size);
     font-weight: bold;
     color: darken($fg_color, 20%);
 
@@ -1711,7 +1747,7 @@ StScrollBar {
 }
 
 .hotplug-notification-item-icon {
-    icon-size: 24px;
+    font-size: 24px;
     padding: 2px 5px;
 }
 
@@ -1734,12 +1770,12 @@ StScrollBar {
 }
 
 .hotplug-resident-mount-icon {
-    icon-size: 24px;
+    font-size: 24px;
     padding-left: 6px;
 }
 
 .hotplug-resident-eject-icon {
-    icon-size: 16px;
+    font-size: 16px;
 }
 
 .hotplug-resident-eject-button {
@@ -1782,7 +1818,7 @@ StScrollBar {
     background-color: $base_color;
     min-height: 2em;
     min-width: 2em;
-    font-size: 14pt;
+    @include fontsize($font-size);
     font-weight: bold;
     border-radius: 5px;
 
@@ -1790,7 +1826,8 @@ StScrollBar {
         @include button(focus);
     }
 
-    &:hover, &:checked {
+    &:hover,
+    &:checked {
         @include button(hover);
     }
 
@@ -1835,7 +1872,8 @@ StScrollBar {
     padding: 0.3em 0.5em 0.3em 0.5em;
     border-radius: 4px;
 
-    &:selected, &:hover {
+    &:selected,
+    &:hover {
         background-color: $selected_bg_color;
         color: $selected_fg_color;
     }
@@ -1867,7 +1905,7 @@ StScrollBar {
 }
 
 .candidate-page-button-icon {
-    icon-size: 1em;
+    font-size: 1em;
 }
 
 /* Auth Dialogs & Screen Shield */
@@ -1906,7 +1944,8 @@ StScrollBar {
         &:default {
             @include button(normal, $c: $selected_bg_color);
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 @include button(hover, $c: $selected_bg_color);
             }
 
@@ -1968,7 +2007,7 @@ StScrollBar {
 
 .login-dialog-user-list {
     spacing: 12px;
-    padding: .2em;
+    padding: 0.2em;
     width: 23em;
 
     &:expanded .login-dialog-user-list-item:selected {
@@ -1983,7 +2022,7 @@ StScrollBar {
 
 .login-dialog-user-list-item {
     border-radius: 5px;
-    padding: .2em;
+    padding: 0.2em;
     color: darken($osd_fg_color, 30%);
 
     &:ltr {
@@ -2038,13 +2077,14 @@ StScrollBar {
 }
 
 .login-dialog-session-list-button StIcon {
-    icon-size: 1.25em;
+    font-size: 1.25em;
 }
 
 .login-dialog-session-list-button {
     color: darken($osd_fg_color, 30%);
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $osd_fg_color;
     }
 
@@ -2136,10 +2176,12 @@ StScrollBar {
 }
 
 #screenShieldNotifications {
-    StButton#vhandle, StButton#hhandle {
+    StButton#vhandle,
+    StButton#hhandle {
         background-color: transparentize($bg_color, 0.7);
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             background-color: transparentize($bg_color, 0.5);
         }
 
@@ -2172,8 +2214,8 @@ StScrollBar {
         font-weight: bold;
         color: #ccc;
         transition-duration: 100ms;
-        padding-left: .3em;
-        padding-right: .3em;
+        padding-left: 0.3em;
+        padding-right: 0.3em;
 
         &:hover {
             color: white;
@@ -2214,7 +2256,7 @@ StScrollBar {
 }
 
 .lg-completions-text {
-    font-size: .9em;
+    font-size: 0.9em;
     font-style: italic;
 }
 

@@ -615,7 +615,7 @@ entry.search.preferences-search {
 
 preferences stacksidebar.sidebar {
     list {
-        background-image: _solid($base_color);
+        //background-image: _solid($base_color);
     }
 
     list separator {
@@ -747,7 +747,7 @@ button.documents-favorite:active:hover {
 //
 .tweak-categories,
 .tweak-category:not(:selected):not(:hover) {
-    background-image: _solid($base_color);
+    //background-image: _solid($base_color);
 }
 
 //
@@ -1041,7 +1041,7 @@ MarlinViewWindow {
     border: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-image: _solid(white);
+    //background-image: _solid(white);
     background-color: transparent;
 
     .title, .label {

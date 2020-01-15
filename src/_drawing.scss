@@ -8,7 +8,8 @@ $depth: 0 1px 2px rgba(0, 0, 0, 0.1), 0 2px 3px rgba(0, 0, 0, 0.22);
 
 $depth2: 0 1px 2px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.3);
 
-$depth3: inset 0 1px 1px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(0, 0, 0, 0.2), 0px 1px 0px 0px rgba(255, 255, 255, 0.15);
+$depth3: inset 0 1px 1px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(0, 0, 0, 0.2),
+    0px 1px 0px 0px rgba(255, 255, 255, 0.15);
 
 $depth4: inset 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 2px 3px rgba(0, 0, 0, 0.22);
 
@@ -33,7 +34,8 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     }
 
     @if $t == both {
-        box-shadow: inset 0 -3px 0 0 darken($c, 5%), inset 0 3px 0 0 darken($c, 5%);
+        box-shadow: inset 0 -3px 0 0 darken($c, 5%),
+            inset 0 3px 0 0 darken($c, 5%);
     }
 }
 
@@ -43,21 +45,22 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     //
     @if $shadow4 != none {
         box-shadow: $shadow1, $shadow2, $shadow3, $shadow4;
-    }
-    @else if $shadow3 != none {
+    } @else if $shadow3 != none {
         box-shadow: $shadow1, $shadow2, $shadow3;
-    }
-    @else if $shadow2 != none {
+    } @else if $shadow2 != none {
         box-shadow: $shadow1, $shadow2;
-    }
-    @else {
+    } @else {
         box-shadow: $shadow1;
     }
 }
 
 // provide font size in rem, with px fallback
 @mixin fontsize($size: 24, $base: 16) {
-    font-size: round($size) + pt;
+    @if $hidpi {
+        font-size: round($size * 2) + pt;
+    } @else {
+        font-size: round($size * 2) + pt;
+    }
 
     //font-size: ($size / $base) * 1rem;
 }
@@ -88,7 +91,8 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         @include _shadows($depth);
     }
 
-    @if $t == hover {}
+    @if $t == hover {
+    }
 
     @if $t == insensitive {
         color: $insensitive_fg_color;
@@ -97,20 +101,32 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 }
 
 @function entry_focus_border($fc: $selected_bg_color) {
-    @if $variant == "light" {
+    @if $variant == 'light' {
         @return $fc;
-    }
-    @else {
-        @return if($fc == $selected_bg_color, $selected_borders_color, darken($fc, 35%));
+    } @else {
+        @return if(
+            $fc == $selected_bg_color,
+            $selected_borders_color,
+            darken($fc, 35%)
+        );
     }
 }
 
 @function entry_gradient($c) {
-    @if $variant == "light" {
-        @return linear-gradient(to bottom, mix($borders_color, $c, 45%), mix($borders_color, $c, 3%) 2px, $c 90%);
-    }
-    @else {
-        @return linear-gradient(to bottom, mix($borders_color, $c, 95%), mix($borders_color, $c, 40%) 3px, $c 90%);
+    @if $variant == 'light' {
+        @return linear-gradient(
+            to bottom,
+            mix($borders_color, $c, 45%),
+            mix($borders_color, $c, 3%) 2px,
+            $c 90%
+        );
+    } @else {
+        @return linear-gradient(
+            to bottom,
+            mix($borders_color, $c, 95%),
+            mix($borders_color, $c, 40%) 3px,
+            $c 90%
+        );
     }
 }
 
@@ -135,8 +151,7 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 
     @if lightness($tc) < 50% {
         @return transparentize(white, 1 - $_lbg / ($_lbg * 1.3));
-    }
-    @else {
+    } @else {
         @return transparentize(black, $_lbg * 0.8);
     }
 }
@@ -149,17 +164,13 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     //
     @if lightness($c) > 90% {
         @return white;
-    }
-    @else if lightness($c) > 80% {
+    } @else if lightness($c) > 80% {
         @return transparentize(white, 0.3);
-    }
-    @else if lightness($c) > 50% {
+    } @else if lightness($c) > 50% {
         @return transparentize(white, 0.5);
-    }
-    @else if lightness($c) > 40% {
+    } @else if lightness($c) > 40% {
         @return transparentize(white, 0.7);
-    }
-    @else {
+    } @else {
         @return transparentize(white, 0.9);
     }
 }
@@ -177,11 +188,10 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 
     @if lightness($tc) < 50% {
         text-shadow: 0 1px $_shadow;
-        icon-shadow: 0 1px $_shadow;
-    }
-    @else {
+        -gtk-icon-shadow: 0 1px $_shadow;
+    } @else {
         text-shadow: 0 -1px $_shadow;
-        icon-shadow: 0 -1px $_shadow;
+        -gtk-icon-shadow: 0 -1px $_shadow;
     }
 }
 
@@ -203,7 +213,11 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 
     $_hilight_color: _button_hilight_color($c);
     $_button_edge: if($edge == none, none, _widget_edge($edge));
-    $_blank_edge: if($edge == none, none, _widget_edge(transparentize($edge, 1)));
+    $_blank_edge: if(
+        $edge == none,
+        none,
+        _widget_edge(transparentize($edge, 1))
+    );
 
     @if $t == normal {
         //
@@ -215,7 +229,7 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         box-shadow: none;
         border: 1px solid $borders_color;
         text-shadow: 0 1px black;
-        icon-shadow: 0 1px black;
+        -gtk-icon-shadow: 0 1px black;
         border: 1px solid $borders_color;
     }
 
@@ -227,23 +241,25 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 
         color: $selected_bg_color;
         text-shadow: 0 1px black;
-        icon-shadow: 0 1px black;
+        -gtk-icon-shadow: 0 1px black;
         box-shadow: none;
         border: 1px solid $borders_color;
-    }
-    @else if $t == hover {
+    } @else if $t == hover {
         //
         // active osd button
         //
-        $_bg: if($c != $osd_bg_color, transparentize($c, 0.3), lighten($main_dark, 2%));
+        $_bg: if(
+            $c != $osd_bg_color,
+            transparentize($c, 0.3),
+            lighten($main_dark, 2%)
+        );
 
         color: $selected_bg_color;
         background-color: $_bg;
         border: 1px solid $borders_color;
         text-shadow: 0 1px black;
-        icon-shadow: 0 1px black;
-    }
-    @else if $t == active {
+        -gtk-icon-shadow: 0 1px black;
+    } @else if $t == active {
         //
         // active osd button
         //
@@ -257,22 +273,23 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         // see https://bugzilla.gnome.org/show_bug.cgi?id=752934
         border: 1px solid $borders_color;
         text-shadow: none;
-        icon-shadow: none;
-    }
-    @else if $t == insensitive {
+        -gtk-icon-shadow: none;
+    } @else if $t == insensitive {
         //
         // insensitive osd button
         //
-        $_bg: transparentize(mix($insensitive_fg_color, $osd_bg_color, 20%), 0.3);
+        $_bg: transparentize(
+            mix($insensitive_fg_color, $osd_bg_color, 20%),
+            0.3
+        );
 
         color: $insensitive_fg_color;
         background-color: $_bg;
         box-shadow: $depth4;
         border: none;
         text-shadow: none;
-        icon-shadow: none;
-    }
-    @else if $t == undecorated {
+        -gtk-icon-shadow: none;
+    } @else if $t == undecorated {
         //
         // reset
         //
@@ -283,7 +300,7 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         @include _shadows(inset 0 1px transparentize(white, 1), $_blank_edge);
 
         text-shadow: none;
-        icon-shadow: none;
+        -gtk-icon-shadow: none;
     }
 }
 
@@ -298,9 +315,14 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
 
     @if $flat {
         background-image: linear-gradient(to bottom, $c, $c);
-    }
-    @else {
-        background-image: linear-gradient(to bottom, mix(black, $c, 15%) 5%, mix(black, $c, 10%) 20%, mix(black, $c, 10%) 90%, $c);
+    } @else {
+        background-image: linear-gradient(
+            to bottom,
+            mix(black, $c, 15%) 5%,
+            mix(black, $c, 10%) 20%,
+            mix(black, $c, 10%) 90%,
+            $c
+        );
     }
 
     border-color: if($c != $bg_color, _border_color($c), $border_color);
@@ -308,12 +330,11 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     @if not $noedge {
         @if lightness($c) > 60% {
             box-shadow: inset 0 -1px $borders_edge, 0 1px $borders_edge;
+        } @else {
+            box-shadow: inset 0 -1px transparentize($borders_edge, 0.5),
+                0 1px transparentize($borders_edge, 0.5);
         }
-        @else {
-            box-shadow: inset 0 -1px transparentize($borders_edge, 0.5), 0 1px transparentize($borders_edge, 0.5);
-        }
-    }
-    @else {
+    } @else {
         box-shadow: none;
     }
 }
@@ -326,16 +347,25 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     // $hc: top highlight color
     // $ov: a background layer for background shorthand (hence no commas!)
     //
-    $gradient: linear-gradient(to top, darken($c, 13%), darken($c, 2%) 2px, $c 3px);
+    $gradient: linear-gradient(
+        to top,
+        darken($c, 13%),
+        darken($c, 2%) 2px,
+        $c 3px
+    );
 
-    @if $variant == "dark" {
-        $gradient: linear-gradient(to top, darken($c, 3%), darken($c, 1%) 2px, $c 3px);
+    @if $variant == 'dark' {
+        $gradient: linear-gradient(
+            to top,
+            darken($c, 3%),
+            darken($c, 1%) 2px,
+            $c 3px
+        );
     }
 
     @if $ov != none {
         background: $c $ov, $gradient;
-    }
-    @else {
+    } @else {
         background: $c $gradient;
     }
 
@@ -369,13 +399,11 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
     @if $p == bottom {
         $_position: center bottom;
         $_linear_gradient_direction: to top;
-    }
-    @else if $p == right {
+    } @else if $p == right {
         $_position: right center;
         $_small_gradient_size: $_small_gradient_length 100%;
         $_big_gradient_size: $_big_gradient_length 100%;
-    }
-    @else if $p == left {
+    } @else if $p == left {
         $_position: left center;
         $_small_gradient_size: $_small_gradient_length 100%;
         $_big_gradient_size: $_big_gradient_length 100%;
@@ -393,15 +421,30 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         }
     }
 
-    $_small_gradient: -gtk-gradient(radial, $_position, 0, $_position, 0.5, to($_small_gradient_color), to(transparentize($_small_gradient_color, 1)));
+    $_small_gradient: -gtk-gradient(
+        radial,
+        $_position,
+        0,
+        $_position,
+        0.5,
+        to($_small_gradient_color),
+        to(transparentize($_small_gradient_color, 1))
+    );
 
-    $_big_gradient: -gtk-gradient(radial, $_position, 0, $_position, 0.6, from(transparentize($_big_gradient_color, 0.93)), to(transparentize($_big_gradient_color, 1)));
+    $_big_gradient: -gtk-gradient(
+        radial,
+        $_position,
+        0,
+        $_position,
+        0.6,
+        from(transparentize($_big_gradient_color, 0.93)),
+        to(transparentize($_big_gradient_color, 1))
+    );
 
     @if $t == normal {
         background-image: $_small_gradient, $_big_gradient;
         background-size: $_small_gradient_size, $_big_gradient_size;
-    }
-    @else if $t == backdrop {
+    } @else if $t == backdrop {
         background-image: $_small_gradient;
         background-size: $_small_gradient_size;
     }
@@ -448,7 +491,11 @@ $depth6: 0 2px 4px 2px transparentize(black, 0.8);
         $_bg_pos: $p center;
     }
 
-    background-image: linear-gradient(to $_gradient_dir, $_undershoot_color_light 50%, $_undershoot_color_dark 50%);
+    background-image: linear-gradient(
+        to $_gradient_dir,
+        $_undershoot_color_light 50%,
+        $_undershoot_color_dark 50%
+    );
     padding-#{$p}: 1px;
     background-size: $_dash_bg_size;
     background-repeat: $_gradient_repeat;

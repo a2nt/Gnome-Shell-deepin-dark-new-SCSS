@@ -1,11 +1,18 @@
 // do not remove:
-@import "src/_default_globals";
+$hidpi: true;
+@import 'src/_default_globals';
+
+@if $hidpi {
+	@debug 'HiDPI is on';
+} @else {
+	@debug 'HiDPI is off';
+}
 
 /*
  * Set your custom variables
  */
 
-$variant: "dark";
+$variant: 'dark';
 $base_color: #212121;
 
 /*$warning_color: #F27835 !default;
