@@ -953,11 +953,12 @@ StScrollBar {
     /* transition from solid to transparent */
     transition-duration: 500ms;
     font-weight: bold;
-    @if $hidpi {
+    /*@if $hidpi {
         height: 2 * 1.86em;
     } @else {
         height: 1.86em;
-    }
+    }*/
+    height: 1.86em;
     @include fontsize($font-size);
 
     padding: 0px 0px;

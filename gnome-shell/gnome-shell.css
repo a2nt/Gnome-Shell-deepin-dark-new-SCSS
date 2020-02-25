@@ -10,7 +10,7 @@
 /*$warning_color: #F27835 !default;
 $error_color: #FC4138 !default;
 $success_color: #73d216 !default;*/
-stage { font-family: Roboto, Ubuntu, Cantarell, Sans-Serif; font-size: 20pt; color: #eeeeec; }
+stage { font-family: Roboto, Ubuntu, Cantarell, Sans-Serif; font-size: 10pt; color: #eeeeec; }
 
 /* WIDGETS */
 /* Buttons */
@@ -117,9 +117,9 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .modal-dialog .run-dialog-button-box { padding-top: 1em; }
 
-.modal-dialog .run-dialog-label { font-size: 22pt; font-weight: bold; color: #9ca9ba; padding-bottom: 0.4em; }
+.modal-dialog .run-dialog-label { font-size: 11pt; font-weight: bold; color: #9ca9ba; padding-bottom: 0.4em; }
 
-.mount-dialog-subject, .end-session-dialog-subject { font-size: 26pt; }
+.mount-dialog-subject, .end-session-dialog-subject { font-size: 13pt; }
 
 /* Message Dialog */
 .message-dialog-main-layout { padding: 12px 20px 0; spacing: 12px; }
@@ -169,7 +169,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .end-session-dialog-app-list-item-name, .end-session-dialog-session-list-item-name { font-weight: bold; }
 
-.end-session-dialog-app-list-item-description { color: #e2e2df; font-size: 20pt; }
+.end-session-dialog-app-list-item-description { color: #e2e2df; font-size: 10pt; }
 
 /* ShellMountOperation Dialogs */
 .shell-mount-operation-icon { font-size: 48px; }
@@ -200,7 +200,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .mount-dialog-app-list-item-icon:rtl { padding-left: 17px; }
 
-.mount-dialog-app-list-item-name { font-size: 20pt; }
+.mount-dialog-app-list-item-name { font-size: 10pt; }
 
 /* Password or Authentication Dialog */
 .prompt-dialog { width: 34em; border: none; border-radius: 2px; }
@@ -215,13 +215,13 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .prompt-dialog-password-box { spacing: 1em; padding-bottom: 1em; }
 
-.prompt-dialog-error-label { font-size: 20pt; color: #d32535; padding-bottom: 8px; }
+.prompt-dialog-error-label { font-size: 10pt; color: #d32535; padding-bottom: 8px; }
 
-.prompt-dialog-info-label { font-size: 20pt; padding-bottom: 8px; }
+.prompt-dialog-info-label { font-size: 10pt; padding-bottom: 8px; }
 
 .hidden { color: rgba(0, 0, 0, 0); }
 
-.prompt-dialog-null-label { font-size: 20pt; padding-bottom: 8px; }
+.prompt-dialog-null-label { font-size: 10pt; padding-bottom: 8px; }
 
 /* Polkit Dialog */
 .polkit-dialog-user-layout { padding-left: 10px; spacing: 10px; }
@@ -375,7 +375,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 .tile-preview-left.tile-preview-right.on-primary { border-radius: 2px 2px 0 0; }
 
 /* TOP BAR */
-#panel { background-gradient-direction: none; background-color: rgba(33, 37, 41, 0.65); /* transition from solid to transparent */ transition-duration: 500ms; font-weight: bold; height: 3.72em; font-size: 20pt; padding: 0px 0px; }
+#panel { background-gradient-direction: none; background-color: rgba(33, 37, 41, 0.65); /* transition from solid to transparent */ transition-duration: 500ms; font-weight: bold; /*@if $hidpi { height: 2 * 1.86em; } @else { height: 1.86em; }*/ height: 1.86em; font-size: 10pt; padding: 0px 0px; }
 
 #panel.unlock-screen, #panel.login-screen, #panel.lock-screen { background-color: transparent; }
 
@@ -387,7 +387,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 #panel .panel-corner.lock-screen, #panel .panel-corner.login-screen, #panel .panel-corner.unlock-screen { -panel-corner-radius: 0; -panel-corner-background-color: transparent; -panel-corner-border-color: transparent; }
 
-#panel .panel-button { -natural-hpadding: 12px; -minimum-hpadding: 6px; font-weight: bold; color: white; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9); transition-duration: 100ms; font-size: 20pt; }
+#panel .panel-button { -natural-hpadding: 12px; -minimum-hpadding: 6px; font-weight: bold; color: white; text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.9); transition-duration: 100ms; font-size: 10pt; }
 
 #panel .panel-button .app-menu-icon { -st-icon-style: symbolic; margin-left: 4px; margin-right: 4px; }
 
@@ -659,7 +659,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 .search-provider-icon { padding: 15px; }
 
 /* DASHBOARD */
-#dash { font-size: 20pt; color: #BAC3CF; background-color: rgba(53, 57, 69, 0.55); border: 0; border-left: 0px; padding: 0; border-radius: 0; }
+#dash { font-size: 10pt; color: #BAC3CF; background-color: rgba(53, 57, 69, 0.55); border: 0; border-left: 0px; padding: 0; border-radius: 0; }
 
 #dash:rtl { border-radius: 0; }
 
@@ -772,7 +772,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 /* NOTIFICATIONS & MESSAGE TRAY */
 .url-highlighter { link-color: #1b6acb; }
 
-.notification-banner { font-size: 20pt; width: 34em; margin: 5px; border-radius: 3px; color: white; background-color: #212529; border: 1px solid #0a0c0d; box-shadow: 0 1px 4px black; }
+.notification-banner { font-size: 10pt; width: 34em; margin: 5px; border-radius: 3px; color: white; background-color: #212529; border: 1px solid #0a0c0d; box-shadow: 0 1px 4px black; }
 
 .notification-banner:hover { background-color: rgba(33, 37, 41, 0.96); }
 
@@ -796,7 +796,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .notification-banner .notification-button:hover, .notification-banner .notification-buttonfocus { background-color: #1c2023; color: #15539e; }
 
-.summary-source-counter { font-size: 20pt; font-weight: bold; height: 1.6em; width: 1.6em; -shell-counter-overlap-x: 3px; -shell-counter-overlap-y: 3px; background-color: #15539e; color: #f7f7f7; border: 2px solid #BAC3CF; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); border-radius: 0.9em; }
+.summary-source-counter { font-size: 10pt; font-weight: bold; height: 1.6em; width: 1.6em; -shell-counter-overlap-x: 3px; -shell-counter-overlap-y: 3px; background-color: #15539e; color: #f7f7f7; border: 2px solid #BAC3CF; box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); border-radius: 0.9em; }
 
 .secondary-icon { font-size: 1.09em; }
 
@@ -816,7 +816,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .chat-sent:rtl { padding-left: 0; padding-right: 18pt; }
 
-.chat-meta-message { padding-left: 4px; font-size: 20pt; font-weight: bold; color: #bebeb6; }
+.chat-meta-message { padding-left: 4px; font-size: 10pt; font-weight: bold; color: #bebeb6; }
 
 .chat-meta-message:rtl { padding-left: 0; padding-right: 4px; }
 
@@ -854,7 +854,7 @@ StScrollBar StButton#vhandle:active, StScrollBar StButton#hhandle:active { backg
 
 .keyboard-row { spacing: 15px; }
 
-.keyboard-key { color: #eeeeec; background-color: #16181b; box-shadow: none; border: 1px solid #0a0c0d; text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; border: 1px solid #0a0c0d; background-color: #212121; min-height: 2em; min-width: 2em; font-size: 20pt; font-weight: bold; border-radius: 5px; }
+.keyboard-key { color: #eeeeec; background-color: #16181b; box-shadow: none; border: 1px solid #0a0c0d; text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; border: 1px solid #0a0c0d; background-color: #212121; min-height: 2em; min-width: 2em; font-size: 10pt; font-weight: bold; border-radius: 5px; }
 
 .keyboard-key:focus { color: #15539e; text-shadow: 0 1px black; -gtk-icon-shadow: 0 1px black; box-shadow: none; border: 1px solid #0a0c0d; }
 
